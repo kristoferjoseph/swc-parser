@@ -13,7 +13,7 @@ task :test
 end
 
 desc "Default"
-task :default => [:compileSWC] do
+task :default => [:test] do
 
 end
 
