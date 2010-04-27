@@ -19,5 +19,9 @@ class SwcUnarchiverTest < Test::Unit::TestCase
   def test_should_return_a_swf_path_from_a_swc
     assert_equal(@swc_unarchiver.get_swf_path_from_swc("#{PATH_TO_SWC}/SWCParserTest.swc"), "#{TEMP_DIR}/library.swf")
   end
+  
+  def test_parse_swc
+    assert_equal(@swc_unarchiver.parse_swc("#{PATH_TO_SWC}/SWCParserTest.swc"), "#{TEMP_DIR}/library.swf")
+  end
  
 end

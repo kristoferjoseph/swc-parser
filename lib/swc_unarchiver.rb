@@ -4,8 +4,9 @@ class SwcUnarchiver
   
   TEMP_DIRECTORY = File.expand_path(File.dirname(__FILE__)).gsub(/lib/,'tmp')
   
-  def parse_swc()
-    
+  def parse_swc(swc)
+    make_temp_directory
+    get_swf_path_from_swc(swc)
   end
   
   def get_swf_path_from_swc(swc)
