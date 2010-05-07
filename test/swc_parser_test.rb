@@ -3,8 +3,9 @@ require File.join(File.dirname(__FILE__), "test_helper")
 class SwcParserTest < Test::Unit::TestCase
   
   def setup
-    @swf = File.join(fixtures, "swc_parser", "library.swf")
-    @swc_parser = SwcParser.new(@swf)
+    @swc = File.join(fixtures, "swc_files", "SWCParserTest.swc")
+    @temp_directory = File.join(fixtures, "tmp")
+    @swc_parser = SwcParser.new(@swc, @temp_directory)
   end
   
   def tear_down

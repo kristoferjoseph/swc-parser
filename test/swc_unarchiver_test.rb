@@ -1,14 +1,12 @@
-#!/usr/bin/env ruby -w
-require "test/unit"
-require "lib/swc_unarchiver"
+require File.join(File.dirname(__FILE__), "test_helper")
 
 class SwcUnarchiverTest < Test::Unit::TestCase
 
-  PATH_TO_SWC = File.expand_path(File.dirname(__FILE__)).gsub(/test/,'bin')
-  TEMP_DIR = File.expand_path(File.dirname(__FILE__)).gsub(/test/,'tmp')
-
   def setup
     @swc_unarchiver = SwcUnarchiver.new
+    @input = File.join(fixtures, "swc_files", "SWCParserTest.swc")
+    @target_directory = File.join(fixtures, "swc_unarchiver", "tmp")
+    @expected_output = File.join(@target_directory, "library.swf")
   end
   
   def tear_down
@@ -17,8 +15,8 @@ class SwcUnarchiverTest < Test::Unit::TestCase
   end
     
   def test_parse_swc
-    assert File.directory?(TEMP_DIR)
-    assert_equal(@swc_unarchiver.unpack_swc("#{PATH_TO_SWC}/SWCParserTest.swc"), "#{TEMP_DIR}/library.swf")
+    assert_equal(@swc_unarchiver.unpack_swc(@input, @target_directory), @expected_output)
+    assert File.directory?(@target_directory)
   end
  
 end

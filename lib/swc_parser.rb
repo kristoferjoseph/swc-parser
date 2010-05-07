@@ -1,5 +1,10 @@
 $:.push File.dirname(__FILE__)
+require 'rubygems'
+require 'bundler'
+Bundler.setup
 require 'zlib'
+require 'fileutils'
+require 'swc_unarchiver'
 require 'swc_extractor'
 require 'abc_data'
 require 'abc_parser'
@@ -15,8 +20,10 @@ class SwcParser
   ACTION3_DEFINE = 82
   ACTION3 = 72
 
-  def initialize( filename )
-    @file = File.new( filename, 'r' )
+  def initialize(swc, temp_directory=nil)
+    swc_unarchiver = SwcUnarchiver.new()
+    swf_file = swc_unarchiver.unpack_swc(swc, temp_directory)
+    @file = File.new( swf_file, 'r' )
     @extractor = SwcExtractor.new
     @contents = nil
     @pos = 0
