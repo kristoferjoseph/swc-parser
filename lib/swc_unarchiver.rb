@@ -4,13 +4,15 @@ class SwcUnarchiver
   
   TEMP_DIRECTORY = File.expand_path(File.dirname(__FILE__)).gsub(/lib/,'tmp')
   
-  def parse_swc(swc)
+  def unpack_swc(swc)
     make_temp_directory
     get_swf_path_from_swc(swc)
   end
   
+  private
+
   def get_swf_path_from_swc(swc)
-    system "unzip -uo #{swc} -d #{TEMP_DIRECTORY}"
+    system "unzip -uo #{swc} -d #{TEMP_DIRECTORY} >/dev/null"
     if File.exist? "#{TEMP_DIRECTORY}/library.swf"
       return "#{TEMP_DIRECTORY}/library.swf"
     end

@@ -11,17 +11,14 @@ class SwcUnarchiverTest < Test::Unit::TestCase
     @swc_unarchiver = SwcUnarchiver.new
   end
   
-  def test_that_temp_directory_is_created
-    @swc_unarchiver.make_temp_directory
-    assert File.directory?(TEMP_DIR)
+  def tear_down
+    @swc_unarchiver = nil
+    
   end
-  
-  def test_should_return_a_swf_path_from_a_swc
-    assert_equal(@swc_unarchiver.get_swf_path_from_swc("#{PATH_TO_SWC}/SWCParserTest.swc"), "#{TEMP_DIR}/library.swf")
-  end
-  
+    
   def test_parse_swc
-    assert_equal(@swc_unarchiver.parse_swc("#{PATH_TO_SWC}/SWCParserTest.swc"), "#{TEMP_DIR}/library.swf")
+    assert File.directory?(TEMP_DIR)
+    assert_equal(@swc_unarchiver.unpack_swc("#{PATH_TO_SWC}/SWCParserTest.swc"), "#{TEMP_DIR}/library.swf")
   end
  
 end
