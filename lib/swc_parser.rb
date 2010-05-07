@@ -10,6 +10,7 @@ require 'abc_data'
 require 'abc_parser'
 require 'swf_header'
 require 'swf_rect'
+require 'abc_parser'
 
 class SwcParser
 
@@ -20,7 +21,7 @@ class SwcParser
   ACTION3_DEFINE = 82
   ACTION3 = 72
 
-  def initialize(swc, temp_directory=nil)
+  def parse_abc(swc, temp_directory=nil)
     swc_unarchiver = SwcUnarchiver.new()
     swf_file = swc_unarchiver.unpack_swc(swc, temp_directory)
     @file = File.new( swf_file, 'r' )
@@ -29,9 +30,10 @@ class SwcParser
     @pos = 0
     @tag_pos = 0
     @on_disk_length = 0
-    @defenition_tags = []
     @header = read_header
-    @abc_data = parse_abc
+    @abc_data_collection = []
+    find_tags
+    @abc_data_collection
   end
 
   def read_header
@@ -55,16 +57,16 @@ class SwcParser
     return header
   end
 
-	def read_bytes( count )
-		read_whole_file_and_close if @contents.nil?
+  def read_bytes( count )
+    read_whole_file_and_close if @contents.nil?
 
-		# if a byte only use the current position otherwise apply a range extraction
-		range = cur = @pos
-		@pos += count
-		range = cur...@pos unless count == BYTE
+    # if a byte only use the current position otherwise apply a range extraction
+    range = cur = @pos
+    @pos += count
+    range = cur...@pos unless count == BYTE
 
-		@contents[range]
-	end
+    @contents[range]
+  end
 
   def read_rect
     ub = read_bytes(BYTE)
@@ -73,12 +75,6 @@ class SwcParser
     rect.bytes = ub.chr + read_bytes( rect.required_bytes - 1 )
 
     return rect
-  end
-
-  def parse_abc
-    abc = AbcData.new
-
-    return abc
   end
 
   def find_tags
@@ -93,39 +89,39 @@ class SwcParser
       bytes = read_bytes(length)
 
       if tagID == ACTION3_DEFINE
-        parser = ABCParser.new
-        parser.parse bytes
+        parser = AbcParser.new
+        @abc_data_collection << parser.parse( bytes )
       end
     end
   end
-  
+
   def inflate( compressed_contents )
-		zstream = Zlib::Inflate.new
-		inflated_contents = zstream.inflate( compressed_contents )
-		zstream.finish
-		zstream.close
-		inflated_contents
-	end
-  
+    zstream = Zlib::Inflate.new
+    inflated_contents = zstream.inflate( compressed_contents )
+    zstream.finish
+    zstream.close
+    inflated_contents
+  end
+
   def read_tag_bytes( bytes, count )
 
-		# if a byte only use the current position otherwise apply a range extraction
-		range = cur = @tag_pos
-		@tag_pos += count
-		range = cur...@tag_pos unless count == BYTE
+    # if a byte only use the current position otherwise apply a range extraction
+    range = cur = @tag_pos
+    @tag_pos += count
+    range = cur...@tag_pos unless count == BYTE
 
-		bytes[range]
-	end
-	
-	
-	def read_whole_file_and_close
-		pos = @file.tell
-		@file.seek( 0, IO::SEEK_END )
-		end_pos = @file.tell
-		@file.pos = pos
-		@on_disk_length = end_pos - pos
-		@contents = @file.read( @on_disk_length )
-		@file.close
-	end
+    bytes[range]
+  end
+
+
+  def read_whole_file_and_close
+    pos = @file.tell
+    @file.seek( 0, IO::SEEK_END )
+    end_pos = @file.tell
+    @file.pos = pos
+    @on_disk_length = end_pos - pos
+    @contents = @file.read( @on_disk_length )
+    @file.close
+  end
 
 end

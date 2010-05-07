@@ -16,5 +16,13 @@
 # }
 
 class AbcData
-  
+  attr_accessor :flags
+  attr_accessor :name
+  attr_accessor :constants
+  ##
+  # The minor version (u16)
+  attr_accessor :minor_version
+  ##
+  # The major version (u16)
+  attr_accessor :major_version
 end

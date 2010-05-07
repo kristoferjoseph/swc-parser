@@ -1,11 +1,21 @@
-#!/usr/bin/env ruby -w
 require "rake/testtask"
+require "rake/clean"
 
-OUTPUT_DIR = File.join(File.expand_path(File.dirname(__FILE__)),"bin")
+OUTPUT_DIR = File.join(File.expand_path(File.dirname(__FILE__)),"test", "fixtures", "swc_files")
 SWC_NAME = "SWCParserTest.swc"
-INCLUDE_CLASSES = "com.developsigner.swcparser.TestClass com.developsigner.swcparser.ITestClass"
+OUTPUT = File.join(OUTPUT_DIR, SWC_NAME)
+as_classes = FileList["src/**/*"]
 
-task :test
+file OUTPUT => as_classes do
+    system "compc -source-path src -output #{OUTPUT} -include-sources src"
+end
+
+CLEAN.add OUTPUT
+
+desc "Compiles a SWC for testing"
+task :compile => OUTPUT
+
+task :test => :compile
   Rake::TestTask.new do |test| 
     test.libs << "test" 
     test.test_files = Dir[ "test/*_test.rb" ] 
@@ -15,9 +25,4 @@ end
 desc "Default"
 task :default => [:test] do
 
-end
-
-desc "Compiles a SWC for testing"
-task :compileSWC do
-    system "compc -source-path src -output #{OUTPUT_DIR}/#{SWC_NAME} -include-classes #{INCLUDE_CLASSES}"
 end

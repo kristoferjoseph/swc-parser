@@ -19,6 +19,7 @@ class AbcParser
     p "major version #{abc_data.major_version}"
     abc_data.constants     = parse_constants content
     p "constants #{abc_data.constants}"
+    abc_data
   end
 
   private
