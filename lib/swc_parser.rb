@@ -1,7 +1,7 @@
 $:.push File.dirname(__FILE__)
 require 'rubygems'
-require 'bundler'
-Bundler.setup
+gem 'rake'
+require 'rake'
 require 'zlib'
 require 'fileutils'
 require 'swc_unarchiver'

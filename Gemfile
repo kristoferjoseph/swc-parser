@@ -2,7 +2,7 @@ source "http://rubygems.org"
 
 gem "rake"
 
-group :test do
+group :development do
   gem "shoulda"
   gem "mocha"
 end

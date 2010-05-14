@@ -26,20 +26,19 @@ class AbcParser
 
     def parse_flags(content)
       @extractor.little_ui32(read_bytes(content, DWORD))
-      #read_bytes(content, DWORD).unpack('V')
 
     end
 
     def read_string_to_null(content)
       name = ''
       while(true)
-        #Just for info (0..1) gives you one letter at a time, (0...1) gives you two letters at a time. Both will work because the loop will terminate at the first null char
+
         str = content.slice(0...1)
         break if(str[0] == 0x00)
         content.slice!(0...1)
         name << str
       end
-      #CHANGED: You need to also slice off the very last null char.
+
       content.slice!(0...1)
       name
     end

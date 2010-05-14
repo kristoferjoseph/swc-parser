@@ -1,7 +1,8 @@
 require File.join(File.dirname(__FILE__), "..", "lib", "swc_parser")
 $:.push File.dirname(__FILE__)
 
-Bundler.require :test
+require 'bundler'
+Bundler.require :development
 
 require "test/unit"
 
