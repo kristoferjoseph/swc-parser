@@ -25,7 +25,7 @@ package com.developsigner.swcparser
 		/**
 		 * @private
 		 */
-		public static const TEST_CONSTANT:String = "TEST_CONSTANT";
+		public static const TEST_CONSTANT:String = "my test constant";
 		public static const ANOTHER_TEST_CONSTANT:String = "ANOTHER_TEST_CONSTANT";
 		
 		//---------------------------------------
@@ -78,6 +78,9 @@ package com.developsigner.swcparser
 		}
 		
 		protected var fwee:String;
+		public var fwi:Boolean;
+		private var fwo:Number;
+		
 		//--------------------------------------
 		//  CONSTRUCTOR
 		//--------------------------------------
@@ -89,9 +92,11 @@ package com.developsigner.swcparser
 		{
 			super();
 		}
+		
 		//---------------------------------------
 		// PUBLIC METHODS
 		//---------------------------------------
+		
 		public function testPublicMethod():void
 		{
 			trace("TestClass::testPublicMethod()");
@@ -118,6 +123,15 @@ package com.developsigner.swcparser
 		protected function testProtectedMethod():void
 		{
 			trace("TestClass::testProtectedMethod()");
+		}
+		
+		//---------------------------------------
+		// PRIVATE METHODS
+		//---------------------------------------
+		
+		private function myPrivate():void
+		{
+			trace("TestClass::myPrivate()");
 		}
 	}
 

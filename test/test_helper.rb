@@ -1,4 +1,4 @@
-require File.join(File.dirname(__FILE__), "..", "lib", "swc_parser")
+require File.join(File.dirname(__FILE__), "..", "lib", "swf_xml_parser")
 $:.push File.dirname(__FILE__)
 
 require 'bundler'
