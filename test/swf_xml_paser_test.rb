@@ -13,12 +13,16 @@ class SwfXmlParserTest < Test::Unit::TestCase
 
     teardown do
       @swc = nil
-#      remove_file @temp_directory
+      #remove_file @temp_directory
       @swf_xml_parser = nil
     end
     
     should "Create SWF XMl file" do
       assert FileTest::exists?(File.join( @temp_directory, "library.xml"))
+    end
+    
+    should "find DoABC2 tags" do
+      assert_equal(@swf_xml_parser.do_abc_2_tags.length, 3)
     end
   
   end

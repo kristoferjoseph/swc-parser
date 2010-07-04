@@ -11,7 +11,10 @@ class SwcUnarchiverTest < Test::Unit::TestCase
   
   def tear_down
     @swc_unarchiver = nil
-    
+    @input = nil
+    remove_file @target_directory
+    @target_directory = nil
+    @expected_output = nil
   end
     
   def test_parse_swc
