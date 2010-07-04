@@ -15,11 +15,15 @@ class SwfXmlStreamListener
       puts "\n"
       puts " ABC TAG START ".center(50,"#")
     end
-
-    if @abc_tag
+    
+    #These will be all of the properties of our class
+    #We ommit tags without attributes
+    #This could be an issue if any tags have text in them, but so far I haven't seen one
+    if @abc_tag && attributes.length > 0
       #build Actionscript Byte Code object
+      p "property tag: #{name}"
       attributes.each do |tag|
-        p "=> properties: #{tag[0]}, #{tag[1]}"
+        p "  properties: #{tag[0]}, #{tag[1]}"
       end
     end
   end
