@@ -1,4 +1,5 @@
 require File.join(File.dirname(__FILE__), "..", "lib", "swf_xml_parser")
+require File.join(File.dirname(__FILE__), "..", "lib", "as3_class_data")
 $:.push File.dirname(__FILE__)
 
 require 'bundler'
