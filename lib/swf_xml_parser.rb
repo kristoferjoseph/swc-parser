@@ -25,6 +25,7 @@ class SwfXmlParser
   def handle_abc2_tag_complete(as3_class_data)
     puts "handle_abc2_tag_complete: #{as3_class_data}"
     @do_abc_2_tags << as3_class_data
+    #fwee
   end
 
 end
