@@ -24,6 +24,7 @@ class SwfXmlParser
   def parse_swf_xml(doc)
     REXML::XPath.match( doc, "//DoABC2" ).each do |tag|
       as3_data = As3ClassData.new()
+      as3_data.fully_qualified_class_name = tag.attributes["name"]
       @as3_classes << as3_data
     end
   end
