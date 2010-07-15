@@ -7,7 +7,7 @@ class As3ClassData
   attr_accessor :public_properties
   attr_accessor :methods
   
-  def do_abc_2_tag_name_attribute=(name)
+  def fully_qualified_class_name=(name)
     puts "Class name => #{name}"
     parts = name.split("/")
     @class_name = parts.pop

@@ -22,7 +22,7 @@ class SwfXmlParserTest < Test::Unit::TestCase
     end
     
     should "find DoABC2 tags" do
-      assert_equal(@swf_xml_parser.do_abc_2_tags.length, 3)
+      assert_equal( 3, @swf_xml_parser.as3_classes.length )
     end
   
   end
