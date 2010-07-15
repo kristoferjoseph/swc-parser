@@ -1,17 +1,17 @@
 <!-- Parsing swf file:/Users/kristoferjoseph/Documents/workspace/swc-parser/test/fixtures/tmp/library.swf -->
 <!-- ?xml version="1.0" encoding="UTF-8"? -->
 <swf xmlns='http://macromedia/2003/swfx' version='10' framerate='24' size='10000x7500' compressed='true' >
-  <!-- framecount=1 length=5616 -->
+  <!-- framecount=1 length=5784 -->
   <FileAttributes hasMetadata='true' actionScript3='true' suppressCrossDomainCaching='false' swfRelativeUrls='false' useNetwork='true'/>
   <Metadata>
-    <rdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'><rdf:Description rdf:about='' xmlns:dc='http://purl.org/dc/elements/1.1'><dc:format>application/x-shockwave-flash</dc:format><dc:title>Adobe Flex 4 Application</dc:title><dc:description>http://www.adobe.com/products/flex</dc:description><dc:publisher>unknown</dc:publisher><dc:creator>unknown</dc:creator><dc:language>EN</dc:language><dc:date>Jun 30, 2010</dc:date></rdf:Description></rdf:RDF>
+    <rdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'><rdf:Description rdf:about='' xmlns:dc='http://purl.org/dc/elements/1.1'><dc:format>application/x-shockwave-flash</dc:format><dc:title>Adobe Flex 4 Application</dc:title><dc:description>http://www.adobe.com/products/flex</dc:description><dc:publisher>unknown</dc:publisher><dc:creator>unknown</dc:creator><dc:language>EN</dc:language><dc:date>Jul 14, 2010</dc:date></rdf:Description></rdf:RDF>
   </Metadata>
-  <EnableDebugger2 password='$1$CH$cpUHu2gyL/qvKKaxT0oje.' reserved='0x1975'/>
+  <EnableDebugger2 password='$1$7H$qFE7mbuLCxq521iWi3gUc.' reserved='0x1975'/>
   <!-- error: SWD not found at url file:/Users/kristoferjoseph/Documents/workspace/swc-parser/test/fixtures/tmp/library.swd -->
-  <DebugID uuid='6086357280D616A84E5125FEE4B7E036'/>
+  <DebugID uuid='1F140B96FCBCF683565A85D226D669DF'/>
   <ScriptLimits scriptRecursionLimit='1000' scriptTimeLimit='60'/>
   <SetBackgroundColor color='#FFFFFF'/>
-  <ProductInfo product='Adobe Flex' edition='' version='4.0' build='14159' compileDate='6/30/10 10:50 PM'/>
+  <ProductInfo product='Adobe Flex' edition='' version='4.0' build='14159' compileDate='7/14/10 11:07 PM'/>
   <DoABC2 name='com/developsigner/swcparser/ITestClass'>
     <ProgramNode>
       <pkgdefs>
@@ -255,7 +255,7 @@
                   </QualifiedIdentifierNode>
                 </name>
                 <baseclass>
-                  <LiteralStringNode value="Object"/>
+                  <LiteralStringNode value="flash.display:MovieClip"/>
                 </baseclass>
                 <interfaces>
                   <ListNode>
@@ -1033,7 +1033,7 @@
       </statements>
     </ProgramNode>
   </DoABC2>
-  <DoABC2 name='_d76cf185bb7909457e3ffc1e5203b1a8dcdf2d6dc79e53e97e671c8c4964f245_flash_display_Sprite'>
+  <DoABC2 name='_6050221dcd4efd56c5e42bc1e85930f638bb67a48d7109b22d6e6c41d18ca2b6_flash_display_Sprite'>
     <ProgramNode>
       <pkgdefs>
       </pkgdefs>
@@ -1051,7 +1051,7 @@
                   </MetaDataNode>
                 </items>
               </StatementListNode>
-              <BinaryClassDefNode name="_d76cf185bb7909457e3ffc1e5203b1a8dcdf2d6dc79e53e97e671c8c4964f245_flash_display_Sprite">
+              <BinaryClassDefNode name="_6050221dcd4efd56c5e42bc1e85930f638bb67a48d7109b22d6e6c41d18ca2b6_flash_display_Sprite">
                 <metaData>
                   <StatementListNode>
                     <items>
@@ -1069,7 +1069,7 @@
                   </AttributeListNode>
                 </attrs>
                 <name>
-                  <QualifiedIdentifierNode name="_d76cf185bb7909457e3ffc1e5203b1a8dcdf2d6dc79e53e97e671c8c4964f245_flash_display_Sprite">
+                  <QualifiedIdentifierNode name="_6050221dcd4efd56c5e42bc1e85930f638bb67a48d7109b22d6e6c41d18ca2b6_flash_display_Sprite">
                     <AttributeListNode public='true'>
                     </AttributeListNode>
                   </QualifiedIdentifierNode>
@@ -1219,7 +1219,7 @@
     </ProgramNode>
   </DoABC2>
   <SymbolClass>
-    <Symbol idref='0' className='_d76cf185bb7909457e3ffc1e5203b1a8dcdf2d6dc79e53e97e671c8c4964f245_flash_display_Sprite' />
+    <Symbol idref='0' className='_6050221dcd4efd56c5e42bc1e85930f638bb67a48d7109b22d6e6c41d18ca2b6_flash_display_Sprite' />
   </SymbolClass>
   <ShowFrame/>
 </swf>

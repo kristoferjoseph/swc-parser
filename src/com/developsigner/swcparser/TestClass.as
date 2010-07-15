@@ -6,6 +6,7 @@
 
 package com.developsigner.swcparser
 {
+	import flash.display.MovieClip;
 	
 	/**
 	 * Class.
@@ -16,7 +17,7 @@ package com.developsigner.swcparser
 	 * @author Kristofer Joseph
 	 * @since  03.01.2010
 	 */
-	public class TestClass extends Object implements ITestClass
+	public class TestClass extends MovieClip implements ITestClass
 	{
 		//---------------------------------------
 		// CLASS CONSTANTS

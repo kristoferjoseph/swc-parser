@@ -8,10 +8,16 @@ class As3ClassData
   attr_accessor :methods
   
   def fully_qualified_class_name=(name)
-    puts "Class name => #{name}"
     parts = name.split("/")
     @class_name = parts.pop
     @package = parts.join(".")
   end
   
+  def fully_qualified_super_class_name=(name) 
+    if name.include? ":"
+      @super_class = name.split(":").pop
+    else
+      @super_class = name
+    end
+  end
 end

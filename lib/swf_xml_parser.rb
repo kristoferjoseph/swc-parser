@@ -22,9 +22,15 @@ class SwfXmlParser
   end
 
   def parse_swf_xml(doc)
-    REXML::XPath.match( doc, "//DoABC2" ).each do |tag|
+    REXML::XPath.match( doc, "//DoABC2" ).each_with_index do |tag, i|
       as3_data = As3ClassData.new()
       as3_data.fully_qualified_class_name = tag.attributes["name"]
+      #For some fucking reason this XPath is still operating on the whole doc not the tag as it is documented to work
+      #So I have to do this STUPID hack
+      base_classes = REXML::XPath.match( tag, "//baseclass/LiteralStringNode" )
+      if base_classes[i]
+        base_class = base_classes[i].attributes["value"]
+      end
       @as3_classes << as3_data
     end
   end

@@ -15,21 +15,21 @@
         <dep id="AS3" type="n" /> 
         <dep id="Object" type="i" /> 
       </script>
-      <script name="com/developsigner/swcparser/TestClass" mod="1277963393000" signatureChecksum="3193819612" >
+      <script name="com/developsigner/swcparser/TestClass" mod="1279174015000" signatureChecksum="3092831326" >
         <def id="com.developsigner.swcparser:TestClass" /> 
         <dep id="trace" type="e" /> 
         <dep id="AS3" type="n" /> 
         <dep id="com.developsigner.swcparser:ITestClass" type="i" /> 
-        <dep id="Object" type="i" /> 
+        <dep id="flash.display:MovieClip" type="i" /> 
       </script>
-      <script name="_d76cf185bb7909457e3ffc1e5203b1a8dcdf2d6dc79e53e97e671c8c4964f245_flash_display_Sprite" mod="1277963403476" signatureChecksum="355826489" >
-        <def id="_d76cf185bb7909457e3ffc1e5203b1a8dcdf2d6dc79e53e97e671c8c4964f245_flash_display_Sprite" /> 
+      <script name="_6050221dcd4efd56c5e42bc1e85930f638bb67a48d7109b22d6e6c41d18ca2b6_flash_display_Sprite" mod="1279174020619" signatureChecksum="1999272571" >
+        <def id="_6050221dcd4efd56c5e42bc1e85930f638bb67a48d7109b22d6e6c41d18ca2b6_flash_display_Sprite" /> 
         <dep id="flash.system:Security" type="e" /> 
         <dep id="AS3" type="n" /> 
         <dep id="flash.display:Sprite" type="i" /> 
       </script>
       <digests>
-        <digest type="SHA-256" signed="false" value="22f092be5859461dbe2ecaa41a68accc66196378cc6c796e4743e586d46a67eb"   />
+        <digest type="SHA-256" signed="false" value="b7bc16195a776f0b3a2a4a72793336df71868105bd2da1d728b824946e75207f"   />
       </digests>
     </library>
   </libraries>
