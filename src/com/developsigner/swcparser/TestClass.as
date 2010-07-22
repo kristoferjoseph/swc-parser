@@ -17,7 +17,7 @@ package com.developsigner.swcparser
 	 * @author Kristofer Joseph
 	 * @since  03.01.2010
 	 */
-	public class TestClass extends MovieClip implements ITestClass
+	public class TestClass extends MovieClip implements ITestClass, IOtherTestInterface
 	{
 		//---------------------------------------
 		// CLASS CONSTANTS
@@ -75,6 +75,21 @@ package com.developsigner.swcparser
 			if (value !== _baz)
 			{
 				_baz = value;
+			}
+		}
+		
+		private var _dude:String;
+
+		public function get dude():String
+		{
+			return _dude;
+		}
+
+		public function set dude(value:String):void
+		{
+			if (value !== _dude)
+			{
+				_dude = value;
 			}
 		}
 		
