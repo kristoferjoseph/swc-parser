@@ -2,19 +2,22 @@ class As3ClassData
   attr_accessor :package
   attr_accessor :class_name
   attr_accessor :super_class
+  attr_accessor :is_interface  
   attr_accessor :interfaces
   attr_accessor :constants
   attr_accessor :public_properties
   attr_accessor :methods
   
   def initialize
-    package           = ""
-    class_name        = ""
-    super_class       = ""    
-    interfaces        = []
-    constants         = []
-    public_properties = []
-    methods           = []
+    @package           = ""
+    @class_name        = ""
+    @super_class       = ""
+    @is_interface      = false
+    @interfaces        = []
+    @constants         = []
+    @public_properties = []
+    @methods           = []
+
   end
   
   def fully_qualified_class_name=(name)

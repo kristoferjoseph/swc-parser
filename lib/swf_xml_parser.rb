@@ -32,18 +32,30 @@ class SwfXmlParser
     doc = REXML::Document.new(tag.to_s)
     root = doc.root
     as3_data = As3ClassData.new()
-    as3_data.fully_qualified_class_name = root.attributes["name"]    
+    # Parse the package and class name
+    as3_data.fully_qualified_class_name = root.attributes["name"]  
+    
+    # Parse the super class name
     stringNode = doc.get_elements('//baseclass/LiteralStringNode')
     if stringNode[0]
       as3_data.fully_qualified_super_class_name = stringNode[0].attributes["value"]
     end
+    
+    # See if we are dealing with an interface class
+    interface_defenition_node =  doc.get_elements('//BinaryInterfaceDefinitionNode')
+    if interface_defenition_node[0]
+      as3_data.is_interface = interface_defenition_node[0].has_attributes?
+    end
+    
+    # Parse the interfaces
     interfaces = doc.get_elements('//interfaces//IdentifierNode')
-    as3_data.interfaces = []
     if interfaces.length
       interfaces.each do |e|
         as3_data.interfaces << e.attributes["name"]
       end
     end
+    
+    # Parse the public properties
     
     @as3_classes << as3_data
   end
