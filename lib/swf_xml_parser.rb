@@ -57,12 +57,12 @@ class SwfXmlParser
     end
 
     # Parse the public properties
-    properties = doc.get_elements('//VariableBindingNode//QualifiedIdentifierNode')
+    properties = doc.get_elements('//VariableBindingNode')
     unless properties.empty?
       properties.each do |property|
         prop = As3Property.new
-        prop.name = property.attributes["name"]
-        attribute_array = property.elements['AttributeListNode'].attributes
+        prop.name = property.elements['*/QualifiedIdentifierNode'].attributes["name"]
+        attribute_array = property.elements['*/QualifiedIdentifierNode/AttributeListNode'].attributes
         if attribute_array["public"]
           prop.modifier = "public"
         elsif attribute_array["private"]
@@ -78,6 +78,8 @@ class SwfXmlParser
         else
           prop.is_static = false
         end
+        
+        
         
         as3_data.properties << prop
       end
