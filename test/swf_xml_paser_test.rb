@@ -21,10 +21,39 @@ class SwfXmlParserTest < Test::Unit::TestCase
       assert FileTest::exists?(File.join( @temp_directory, "library.xml"))
     end
     
-    should "find DoABC2 tags" do
+    should "find AS3 class tags" do
       assert_equal( 4, @swf_xml_parser.as3_classes.length )
     end
-  
+    
+    should "find class by name" do
+      klazz = @swf_xml_parser.find_class_by_name "TestClass"
+      assert_equal( "TestClass", klazz.class_name)
+    end
+    
+    should "find properties on class" do
+      klazz = @swf_xml_parser.find_class_by_name "TestClass"
+      prop_1 = klazz.find_property_by_name "fwi"
+      assert_equal( "fwi", prop_1.name)
+    end
+    
+    should "parse property modifier from property node" do
+      klazz = @swf_xml_parser.find_class_by_name "TestClass"
+      prop_1 = klazz.find_property_by_name "fwi"
+      assert_equal( "public", prop_1.modifier)
+    end
+    
+    should "parse static properties" do
+      klazz = @swf_xml_parser.find_class_by_name "TestClass"
+      prop_1 = klazz.find_property_by_name "TEST_CONSTANT"
+      assert( prop_1.is_static )
+    end
+    
+    should "parse property value" do
+      klazz = @swf_xml_parser.find_class_by_name "TestClass"
+      prop_1 = klazz.find_property_by_name "TEST_CONSTANT"
+      assert_equal( "my test constant", prop_1.value )
+    end
+    
   end
   
 end

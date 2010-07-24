@@ -24,6 +24,8 @@ class As3ClassDataTest < Test::Unit::TestCase
       @as3_class_data.fully_qualified_super_class_name = "Object"
       assert_equal "Object", @as3_class_data.super_class
     end
+    
+    
 
   end
 
