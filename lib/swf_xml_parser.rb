@@ -79,7 +79,9 @@ class SwfXmlParser
           prop.is_static = false
         end
         
-        
+        if property.elements['LiteralStringNode']
+          prop.value = property.elements['LiteralStringNode'].attributes['value']
+        end
         
         as3_data.properties << prop
       end
