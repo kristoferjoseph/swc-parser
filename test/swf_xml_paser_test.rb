@@ -54,6 +54,15 @@ class SwfXmlParserTest < Test::Unit::TestCase
       assert_equal( "my test constant", prop_1.value )
     end
     
+    should "parse property type" do
+      klazz = @swf_xml_parser.find_class_by_name "TestClass"
+      prop = klazz.find_property_by_name "TEST_CONSTANT"
+      assert_equal( "String", prop.type )
+      klazz = @swf_xml_parser.find_class_by_name "TestClass"
+      prop = klazz.find_property_by_name "_foo"
+      assert_equal( "String", prop.type )
+    end
+    
   end
   
 end

@@ -83,6 +83,10 @@ class SwfXmlParser
           prop.value = property.elements['LiteralStringNode'].attributes['value']
         end
         
+        if property.elements['*/MemberExpressionNode/selector/GetExpressionNode/IdentifierNode']
+          prop.type = property.elements['*/MemberExpressionNode/selector/GetExpressionNode/IdentifierNode'].attributes['name']
+        end
+        
         as3_data.properties << prop
       end
     end
