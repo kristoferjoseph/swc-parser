@@ -7,6 +7,7 @@ require 'swc_unarchiver'
 require 'rexml/document'
 require 'as3_class_data'
 require 'as3_property'
+require "as3_method"
 
 class SwfXmlParser
   attr_accessor :as3_classes
@@ -24,6 +25,7 @@ class SwfXmlParser
 
   def parse_swf_xml(doc)
     tags = []
+    # Parse all the Actionscript Byte Code elements
     doc.elements.each("*/DoABC2") do |tag|
       parse_do_abc_2_tag(tag)
     end
@@ -33,6 +35,7 @@ class SwfXmlParser
     doc = REXML::Document.new(tag.to_s)
     root = doc.root
     as3_data = As3ClassData.new()
+    
     # Parse the package and class name
     as3_data.fully_qualified_class_name = root.attributes["name"]
 
@@ -88,6 +91,15 @@ class SwfXmlParser
         end
         
         as3_data.properties << prop
+      end
+    end
+    
+    # Parse all the methods
+    methods = doc.get_elements('//FunctionCommonNode')
+    unless methods.empty?
+      methods.each do |method|
+        function = As3Method.new
+        as3_data.methods << function
       end
     end
 
