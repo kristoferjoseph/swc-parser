@@ -112,6 +112,10 @@ class SwfXmlParser
             param = As3MethodParam.new
             param.name = parameter.elements['*/IdentifierNode'].attributes['name']
             param.type = parameter.elements['*/MemberExpressionNode/selector/GetExpressionNode/IdentifierNode'].attributes['name']
+            default = parameter.elements['init/LiteralStringNode']
+            if default && default.has_attributes?
+              param.default = default.attributes['value']
+            end
             function.parameters << param
           end
         end
