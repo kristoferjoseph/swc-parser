@@ -10,12 +10,6 @@
   </features>
   <libraries>
     <library path="library.swf">
-      <script name="_724a71422c4c30ec2875102b1c1f9d9accfb946957cbfd1b1333b5c69409c15b_flash_display_Sprite" mod="1280032443014" signatureChecksum="556038673" >
-        <def id="_724a71422c4c30ec2875102b1c1f9d9accfb946957cbfd1b1333b5c69409c15b_flash_display_Sprite" /> 
-        <dep id="flash.system:Security" type="e" /> 
-        <dep id="AS3" type="n" /> 
-        <dep id="flash.display:Sprite" type="i" /> 
-      </script>
       <script name="com/developsigner/swcparser/ITestClass" mod="1279765600000" signatureChecksum="2085241277" >
         <def id="com.developsigner.swcparser:ITestClass" /> 
         <dep id="AS3" type="n" /> 
@@ -26,7 +20,7 @@
         <dep id="AS3" type="n" /> 
         <dep id="Object" type="i" /> 
       </script>
-      <script name="com/developsigner/swcparser/TestClass" mod="1280032434000" signatureChecksum="3950248420" >
+      <script name="com/developsigner/swcparser/TestClass" mod="1280033702000" signatureChecksum="2022703986" >
         <def id="com.developsigner.swcparser:TestClass" /> 
         <dep id="trace" type="e" /> 
         <dep id="AS3" type="n" /> 
@@ -34,8 +28,14 @@
         <dep id="com.developsigner.swcparser:IOtherTestInterface" type="i" /> 
         <dep id="flash.display:MovieClip" type="i" /> 
       </script>
+      <script name="_d59c53202ce66e7d9f15e75c564a52294dcf49cf81176c643702208b5177b8c0_flash_display_Sprite" mod="1280033710995" signatureChecksum="1853454547" >
+        <def id="_d59c53202ce66e7d9f15e75c564a52294dcf49cf81176c643702208b5177b8c0_flash_display_Sprite" /> 
+        <dep id="flash.system:Security" type="e" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.display:Sprite" type="i" /> 
+      </script>
       <digests>
-        <digest type="SHA-256" signed="false" value="6a58a047425caa6e0d01a947414c1018434f97c0566b662e8479fcf802c2e918"   />
+        <digest type="SHA-256" signed="false" value="8a0bfd2d852062c49a4dd5f9fdeaeb57beecc34b68b985f6ca0a6e13b2360226"   />
       </digests>
     </library>
   </libraries>

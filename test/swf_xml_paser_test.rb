@@ -86,6 +86,12 @@ class SwfXmlParserTest < Test::Unit::TestCase
       assert( func.is_static )
     end
     
+    should "parse function parameters" do
+      klazz = @swf_xml_parser.find_class_by_name "TestClass"
+      func = klazz.find_function_by_name "testPublicMethodWithArgumentAndReturnValue"      
+      assert( !func.parameters.empty? )
+    end
+    
   end
   
 end

@@ -1,202 +1,17 @@
 <!-- Parsing swf file:/Users/kristoferjoseph/Documents/workspace/swc-parser/test/fixtures/tmp/library.swf -->
 <!-- ?xml version="1.0" encoding="UTF-8"? -->
 <swf xmlns='http://macromedia/2003/swfx' version='10' framerate='24' size='10000x7500' compressed='true' >
-  <!-- framecount=1 length=6919 -->
+  <!-- framecount=1 length=6933 -->
   <FileAttributes hasMetadata='true' actionScript3='true' suppressCrossDomainCaching='false' swfRelativeUrls='false' useNetwork='true'/>
   <Metadata>
     <rdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'><rdf:Description rdf:about='' xmlns:dc='http://purl.org/dc/elements/1.1'><dc:format>application/x-shockwave-flash</dc:format><dc:title>Adobe Flex 4 Application</dc:title><dc:description>http://www.adobe.com/products/flex</dc:description><dc:publisher>unknown</dc:publisher><dc:creator>unknown</dc:creator><dc:language>EN</dc:language><dc:date>Jul 24, 2010</dc:date></rdf:Description></rdf:RDF>
   </Metadata>
-  <EnableDebugger2 password='$1$xB$V3b9oCPGzxMzb.AXUtN0t/' reserved='0x1975'/>
+  <EnableDebugger2 password='$1$MJ$qTa2GEwQsUQYNl.EVtkiA1' reserved='0x1975'/>
   <!-- error: SWD not found at url file:/Users/kristoferjoseph/Documents/workspace/swc-parser/test/fixtures/tmp/library.swd -->
-  <DebugID uuid='77900A78A0CCFC4B75B9F15DD94B753E'/>
+  <DebugID uuid='5A7423B1C957C712D9EC56F9D6FE6780'/>
   <ScriptLimits scriptRecursionLimit='1000' scriptTimeLimit='60'/>
   <SetBackgroundColor color='#FFFFFF'/>
-  <ProductInfo product='Adobe Flex' edition='' version='4.0' build='14159' compileDate='7/24/10 9:34 PM'/>
-  <DoABC2 name='_724a71422c4c30ec2875102b1c1f9d9accfb946957cbfd1b1333b5c69409c15b_flash_display_Sprite'>
-    <ProgramNode>
-      <pkgdefs>
-      </pkgdefs>
-      <statements>
-        <StatementListNode>
-          <items>
-            <BinaryProgramNode>
-              <StatementListNode>
-                <items>
-                  <MetaDataNode id="ExcludeClass">
-                  </MetaDataNode>
-                  <MetaDataNode id="__go_to_ctor_definition_help">
-                  </MetaDataNode>
-                  <MetaDataNode id="__go_to_definition_help">
-                  </MetaDataNode>
-                </items>
-              </StatementListNode>
-              <BinaryClassDefNode name="_724a71422c4c30ec2875102b1c1f9d9accfb946957cbfd1b1333b5c69409c15b_flash_display_Sprite">
-                <metaData>
-                  <StatementListNode>
-                    <items>
-                      <MetaDataNode id="ExcludeClass">
-                      </MetaDataNode>
-                      <MetaDataNode id="__go_to_ctor_definition_help">
-                      </MetaDataNode>
-                      <MetaDataNode id="__go_to_definition_help">
-                      </MetaDataNode>
-                    </items>
-                  </StatementListNode>
-                </metaData>
-                <attrs>
-                  <AttributeListNode public='true'>
-                  </AttributeListNode>
-                </attrs>
-                <name>
-                  <QualifiedIdentifierNode name="_724a71422c4c30ec2875102b1c1f9d9accfb946957cbfd1b1333b5c69409c15b_flash_display_Sprite">
-                    <AttributeListNode public='true'>
-                    </AttributeListNode>
-                  </QualifiedIdentifierNode>
-                </name>
-                <baseclass>
-                  <LiteralStringNode value="flash.display:Sprite"/>
-                </baseclass>
-                <instanceinits>
-                  <BinaryFunctionDefinitionNode>
-                    <name>
-                      <FunctionNameNode kind="-133">
-                        <QualifiedIdentifierNode name="allowDomainInRSL">
-                          <AttributeListNode public='true'>
-                          </AttributeListNode>
-                        </QualifiedIdentifierNode>
-                      </FunctionNameNode>
-                    </name>
-                    <attrs>
-                      <AttributeListNode public='true'>
-                      </AttributeListNode>
-                    </attrs>
-                    <fexpr>
-                      <FunctionCommonNode>
-                        <QualifiedIdentifierNode name="allowDomainInRSL">
-                          <AttributeListNode public='true'>
-                          </AttributeListNode>
-                        </QualifiedIdentifierNode>
-                        <FunctionSignatureNode no_anno="false" void_anno="false">
-                          <ParameterListNode>
-                            <RestParameterNode>
-                              <ParameterNode kind="-112">
-                                <identifier>
-                                  <IdentifierNode name="rest"/>
-                                </identifier>
-                                <type>
-                                  <MemberExpressionNode>
-                                    <selector>
-                                      <GetExpressionNode is_package="false" isRValue="false" isAttr="false" isSuper="false" isThis="false" isVoidResult="false" mode="lexical">
-                                        <IdentifierNode name="Array"/>
-                                      </GetExpressionNode>
-                                    </selector>
-                                  </MemberExpressionNode>
-                                </type>
-                              </ParameterNode>
-                            </RestParameterNode>
-                          </ParameterListNode>
-                          <MemberExpressionNode>
-                            <selector>
-                              <GetExpressionNode is_package="false" isRValue="false" isAttr="false" isSuper="false" isThis="false" isVoidResult="false" mode="lexical">
-                                <IdentifierNode name="void"/>
-                              </GetExpressionNode>
-                            </selector>
-                          </MemberExpressionNode>
-                        </FunctionSignatureNode>
-                      </FunctionCommonNode>
-                    </fexpr>
-                  </BinaryFunctionDefinitionNode>
-                  <MetaDataNode id="__go_to_definition_help">
-                  </MetaDataNode>
-                  <BinaryFunctionDefinitionNode>
-                    <name>
-                      <FunctionNameNode kind="-133">
-                        <QualifiedIdentifierNode name="allowInsecureDomainInRSL">
-                          <AttributeListNode public='true'>
-                          </AttributeListNode>
-                        </QualifiedIdentifierNode>
-                      </FunctionNameNode>
-                    </name>
-                    <attrs>
-                      <AttributeListNode public='true'>
-                      </AttributeListNode>
-                    </attrs>
-                    <fexpr>
-                      <FunctionCommonNode>
-                        <QualifiedIdentifierNode name="allowInsecureDomainInRSL">
-                          <AttributeListNode public='true'>
-                          </AttributeListNode>
-                        </QualifiedIdentifierNode>
-                        <FunctionSignatureNode no_anno="false" void_anno="false">
-                          <ParameterListNode>
-                            <RestParameterNode>
-                              <ParameterNode kind="-112">
-                                <identifier>
-                                  <IdentifierNode name="rest"/>
-                                </identifier>
-                                <type>
-                                  <MemberExpressionNode>
-                                    <selector>
-                                      <GetExpressionNode is_package="false" isRValue="false" isAttr="false" isSuper="false" isThis="false" isVoidResult="false" mode="lexical">
-                                        <IdentifierNode name="Array"/>
-                                      </GetExpressionNode>
-                                    </selector>
-                                  </MemberExpressionNode>
-                                </type>
-                              </ParameterNode>
-                            </RestParameterNode>
-                          </ParameterListNode>
-                          <MemberExpressionNode>
-                            <selector>
-                              <GetExpressionNode is_package="false" isRValue="false" isAttr="false" isSuper="false" isThis="false" isVoidResult="false" mode="lexical">
-                                <IdentifierNode name="void"/>
-                              </GetExpressionNode>
-                            </selector>
-                          </MemberExpressionNode>
-                        </FunctionSignatureNode>
-                      </FunctionCommonNode>
-                    </fexpr>
-                  </BinaryFunctionDefinitionNode>
-                  <MetaDataNode id="__go_to_definition_help">
-                  </MetaDataNode>
-                  <BinaryFunctionDefinitionNode>
-                    <name>
-                      <FunctionNameNode kind="-133">
-                        <QualifiedIdentifierNode name="$construct">
-                          <AttributeListNode public='true'>
-                          </AttributeListNode>
-                        </QualifiedIdentifierNode>
-                      </FunctionNameNode>
-                    </name>
-                    <attrs>
-                      <AttributeListNode public='true'>
-                      </AttributeListNode>
-                    </attrs>
-                    <fexpr>
-                      <FunctionCommonNode>
-                        <QualifiedIdentifierNode name="$construct">
-                          <AttributeListNode public='true'>
-                          </AttributeListNode>
-                        </QualifiedIdentifierNode>
-                        <FunctionSignatureNode no_anno="false" void_anno="false">
-                        </FunctionSignatureNode>
-                      </FunctionCommonNode>
-                    </fexpr>
-                  </BinaryFunctionDefinitionNode>
-                </instanceinits>
-                <statements>
-                  <StatementListNode>
-                    <items>
-                    </items>
-                  </StatementListNode>
-                </statements>
-              </BinaryClassDefNode>
-            </BinaryProgramNode>
-          </items>
-        </StatementListNode>
-      </statements>
-    </ProgramNode>
-  </DoABC2>
+  <ProductInfo product='Adobe Flex' edition='' version='4.0' build='14159' compileDate='7/24/10 9:55 PM'/>
   <DoABC2 name='com/developsigner/swcparser/ITestClass'>
     <ProgramNode>
       <pkgdefs>
@@ -1221,6 +1036,9 @@
                                   </selector>
                                 </MemberExpressionNode>
                               </type>
+                              <init>
+                                <LiteralStringNode value="kumquat"/>
+                              </init>
                             </ParameterNode>
                             <ParameterNode kind="-112">
                               <identifier>
@@ -1235,6 +1053,9 @@
                                   </selector>
                                 </MemberExpressionNode>
                               </type>
+                              <init>
+                                <LiteralNumberNode value="0.0"/>
+                              </init>
                             </ParameterNode>
                           </ParameterListNode>
                           <MemberExpressionNode>
@@ -1476,8 +1297,193 @@
       </statements>
     </ProgramNode>
   </DoABC2>
+  <DoABC2 name='_d59c53202ce66e7d9f15e75c564a52294dcf49cf81176c643702208b5177b8c0_flash_display_Sprite'>
+    <ProgramNode>
+      <pkgdefs>
+      </pkgdefs>
+      <statements>
+        <StatementListNode>
+          <items>
+            <BinaryProgramNode>
+              <StatementListNode>
+                <items>
+                  <MetaDataNode id="ExcludeClass">
+                  </MetaDataNode>
+                  <MetaDataNode id="__go_to_ctor_definition_help">
+                  </MetaDataNode>
+                  <MetaDataNode id="__go_to_definition_help">
+                  </MetaDataNode>
+                </items>
+              </StatementListNode>
+              <BinaryClassDefNode name="_d59c53202ce66e7d9f15e75c564a52294dcf49cf81176c643702208b5177b8c0_flash_display_Sprite">
+                <metaData>
+                  <StatementListNode>
+                    <items>
+                      <MetaDataNode id="ExcludeClass">
+                      </MetaDataNode>
+                      <MetaDataNode id="__go_to_ctor_definition_help">
+                      </MetaDataNode>
+                      <MetaDataNode id="__go_to_definition_help">
+                      </MetaDataNode>
+                    </items>
+                  </StatementListNode>
+                </metaData>
+                <attrs>
+                  <AttributeListNode public='true'>
+                  </AttributeListNode>
+                </attrs>
+                <name>
+                  <QualifiedIdentifierNode name="_d59c53202ce66e7d9f15e75c564a52294dcf49cf81176c643702208b5177b8c0_flash_display_Sprite">
+                    <AttributeListNode public='true'>
+                    </AttributeListNode>
+                  </QualifiedIdentifierNode>
+                </name>
+                <baseclass>
+                  <LiteralStringNode value="flash.display:Sprite"/>
+                </baseclass>
+                <instanceinits>
+                  <BinaryFunctionDefinitionNode>
+                    <name>
+                      <FunctionNameNode kind="-133">
+                        <QualifiedIdentifierNode name="allowDomainInRSL">
+                          <AttributeListNode public='true'>
+                          </AttributeListNode>
+                        </QualifiedIdentifierNode>
+                      </FunctionNameNode>
+                    </name>
+                    <attrs>
+                      <AttributeListNode public='true'>
+                      </AttributeListNode>
+                    </attrs>
+                    <fexpr>
+                      <FunctionCommonNode>
+                        <QualifiedIdentifierNode name="allowDomainInRSL">
+                          <AttributeListNode public='true'>
+                          </AttributeListNode>
+                        </QualifiedIdentifierNode>
+                        <FunctionSignatureNode no_anno="false" void_anno="false">
+                          <ParameterListNode>
+                            <RestParameterNode>
+                              <ParameterNode kind="-112">
+                                <identifier>
+                                  <IdentifierNode name="rest"/>
+                                </identifier>
+                                <type>
+                                  <MemberExpressionNode>
+                                    <selector>
+                                      <GetExpressionNode is_package="false" isRValue="false" isAttr="false" isSuper="false" isThis="false" isVoidResult="false" mode="lexical">
+                                        <IdentifierNode name="Array"/>
+                                      </GetExpressionNode>
+                                    </selector>
+                                  </MemberExpressionNode>
+                                </type>
+                              </ParameterNode>
+                            </RestParameterNode>
+                          </ParameterListNode>
+                          <MemberExpressionNode>
+                            <selector>
+                              <GetExpressionNode is_package="false" isRValue="false" isAttr="false" isSuper="false" isThis="false" isVoidResult="false" mode="lexical">
+                                <IdentifierNode name="void"/>
+                              </GetExpressionNode>
+                            </selector>
+                          </MemberExpressionNode>
+                        </FunctionSignatureNode>
+                      </FunctionCommonNode>
+                    </fexpr>
+                  </BinaryFunctionDefinitionNode>
+                  <MetaDataNode id="__go_to_definition_help">
+                  </MetaDataNode>
+                  <BinaryFunctionDefinitionNode>
+                    <name>
+                      <FunctionNameNode kind="-133">
+                        <QualifiedIdentifierNode name="allowInsecureDomainInRSL">
+                          <AttributeListNode public='true'>
+                          </AttributeListNode>
+                        </QualifiedIdentifierNode>
+                      </FunctionNameNode>
+                    </name>
+                    <attrs>
+                      <AttributeListNode public='true'>
+                      </AttributeListNode>
+                    </attrs>
+                    <fexpr>
+                      <FunctionCommonNode>
+                        <QualifiedIdentifierNode name="allowInsecureDomainInRSL">
+                          <AttributeListNode public='true'>
+                          </AttributeListNode>
+                        </QualifiedIdentifierNode>
+                        <FunctionSignatureNode no_anno="false" void_anno="false">
+                          <ParameterListNode>
+                            <RestParameterNode>
+                              <ParameterNode kind="-112">
+                                <identifier>
+                                  <IdentifierNode name="rest"/>
+                                </identifier>
+                                <type>
+                                  <MemberExpressionNode>
+                                    <selector>
+                                      <GetExpressionNode is_package="false" isRValue="false" isAttr="false" isSuper="false" isThis="false" isVoidResult="false" mode="lexical">
+                                        <IdentifierNode name="Array"/>
+                                      </GetExpressionNode>
+                                    </selector>
+                                  </MemberExpressionNode>
+                                </type>
+                              </ParameterNode>
+                            </RestParameterNode>
+                          </ParameterListNode>
+                          <MemberExpressionNode>
+                            <selector>
+                              <GetExpressionNode is_package="false" isRValue="false" isAttr="false" isSuper="false" isThis="false" isVoidResult="false" mode="lexical">
+                                <IdentifierNode name="void"/>
+                              </GetExpressionNode>
+                            </selector>
+                          </MemberExpressionNode>
+                        </FunctionSignatureNode>
+                      </FunctionCommonNode>
+                    </fexpr>
+                  </BinaryFunctionDefinitionNode>
+                  <MetaDataNode id="__go_to_definition_help">
+                  </MetaDataNode>
+                  <BinaryFunctionDefinitionNode>
+                    <name>
+                      <FunctionNameNode kind="-133">
+                        <QualifiedIdentifierNode name="$construct">
+                          <AttributeListNode public='true'>
+                          </AttributeListNode>
+                        </QualifiedIdentifierNode>
+                      </FunctionNameNode>
+                    </name>
+                    <attrs>
+                      <AttributeListNode public='true'>
+                      </AttributeListNode>
+                    </attrs>
+                    <fexpr>
+                      <FunctionCommonNode>
+                        <QualifiedIdentifierNode name="$construct">
+                          <AttributeListNode public='true'>
+                          </AttributeListNode>
+                        </QualifiedIdentifierNode>
+                        <FunctionSignatureNode no_anno="false" void_anno="false">
+                        </FunctionSignatureNode>
+                      </FunctionCommonNode>
+                    </fexpr>
+                  </BinaryFunctionDefinitionNode>
+                </instanceinits>
+                <statements>
+                  <StatementListNode>
+                    <items>
+                    </items>
+                  </StatementListNode>
+                </statements>
+              </BinaryClassDefNode>
+            </BinaryProgramNode>
+          </items>
+        </StatementListNode>
+      </statements>
+    </ProgramNode>
+  </DoABC2>
   <SymbolClass>
-    <Symbol idref='0' className='_724a71422c4c30ec2875102b1c1f9d9accfb946957cbfd1b1333b5c69409c15b_flash_display_Sprite' />
+    <Symbol idref='0' className='_d59c53202ce66e7d9f15e75c564a52294dcf49cf81176c643702208b5177b8c0_flash_display_Sprite' />
   </SymbolClass>
   <ShowFrame/>
 </swf>

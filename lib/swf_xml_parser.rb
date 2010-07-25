@@ -8,6 +8,7 @@ require 'rexml/document'
 require 'as3_class_data'
 require 'as3_property'
 require "as3_method"
+require "as3_method_param"
 
 class SwfXmlParser
   attr_accessor :as3_classes
@@ -102,6 +103,15 @@ class SwfXmlParser
         # Parse if method is static
         if modifier_attributes["static"]
           function.is_static = true
+        end
+        
+        # Parse function parameters
+        parameters = method.get_elements('//ParameterNode')
+        unless parameters.empty?
+          parameters.each do |parameter|
+            param = As3MethodParam.new
+            function.parameters << param
+          end
         end
         
         as3_data.functions << function

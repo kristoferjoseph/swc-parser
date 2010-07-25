@@ -132,7 +132,7 @@ package com.developsigner.swcparser
 			trace("TestClass::testPublicMethodWithArgument()");
 		}
 		
-		public function testPublicMethodWithArgumentAndReturnValue(firstArg:String,secondArg:Number):String
+		public function testPublicMethodWithArgumentAndReturnValue(firstArg:String="kumquat",secondArg:Number=0):String
 		{
 			trace("TestClass::testPublicMethodWithArgumentAndReturnValue()");
 			return "The first Arg is: "+firstArg+" The second Arg is: "+secondArg;
