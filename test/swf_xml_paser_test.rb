@@ -63,33 +63,40 @@ class SwfXmlParserTest < Test::Unit::TestCase
     #   assert_equal( "String", prop.type )
     # end
     # 
-    should "find function on class" do
-      klazz = @swf_xml_parser.find_class_by_name "TestClass"
-      assert( !klazz.functions.empty? )
-    end
+    # should "find function on class" do
+    #   klazz = @swf_xml_parser.find_class_by_name "TestClass"
+    #   assert( !klazz.functions.empty? )
+    # end
+    # 
+    # should "find function by name" do
+    #   klazz = @swf_xml_parser.find_class_by_name "TestClass"
+    #   func = klazz.find_function_by_name "foo"
+    #   assert_equal( "foo", func.name )
+    # end
+    # 
+    # should "parse function modifier" do
+    #   klazz = @swf_xml_parser.find_class_by_name "TestClass"
+    #   func = klazz.find_function_by_name "foo"
+    #   assert_equal( "public", func.modifier )
+    # end
+    # 
+    # should  "parse static methods" do
+    #   klazz = @swf_xml_parser.find_class_by_name "TestClass"
+    #   func = klazz.find_function_by_name "myStaticMethod"
+    #   assert( func.is_static )
+    # end
+    # 
+    # should "parse function parameters" do
+    #   klazz = @swf_xml_parser.find_class_by_name "TestClass"
+    #   func = klazz.find_function_by_name "testPublicMethodWithArgumentAndReturnValue"      
+    #   assert( !func.parameters.empty? )
+    # end
     
-    should "find function by name" do
+    should "parse function parameters name" do
       klazz = @swf_xml_parser.find_class_by_name "TestClass"
-      func = klazz.find_function_by_name "foo"
-      assert_equal( "foo", func.name )
-    end
-    
-    should "parse function modifier" do
-      klazz = @swf_xml_parser.find_class_by_name "TestClass"
-      func = klazz.find_function_by_name "foo"
-      assert_equal( "public", func.modifier )
-    end
-    
-    should  "parse static methods" do
-      klazz = @swf_xml_parser.find_class_by_name "TestClass"
-      func = klazz.find_function_by_name "myStaticMethod"
-      assert( func.is_static )
-    end
-    
-    should "parse function parameters" do
-      klazz = @swf_xml_parser.find_class_by_name "TestClass"
-      func = klazz.find_function_by_name "testPublicMethodWithArgumentAndReturnValue"      
-      assert( !func.parameters.empty? )
+      func = klazz.find_function_by_name "testPublicMethodWithArgumentAndReturnValue"
+      param = func.find_parameter_by_name "firstArg"
+      assert_equal( "firstArg", param.name )
     end
     
   end

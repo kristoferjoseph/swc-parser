@@ -110,6 +110,7 @@ class SwfXmlParser
         unless parameters.empty?
           parameters.each do |parameter|
             param = As3MethodParam.new
+            param.name = parameter.elements['*/IdentifierNode'].attributes['name']
             function.parameters << param
           end
         end

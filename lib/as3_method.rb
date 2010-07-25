@@ -13,4 +13,8 @@ class As3Method
     @return_type = []
   end
   
+  def find_parameter_by_name(name)
+    return @parameters.find { |parameter| parameter.name == name }
+  end
+  
 end
