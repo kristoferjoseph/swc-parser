@@ -111,6 +111,7 @@ class SwfXmlParser
           parameters.each do |parameter|
             param = As3MethodParam.new
             param.name = parameter.elements['*/IdentifierNode'].attributes['name']
+            param.type = parameter.elements['*/MemberExpressionNode/selector/GetExpressionNode/IdentifierNode'].attributes['name']
             function.parameters << param
           end
         end
