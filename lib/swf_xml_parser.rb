@@ -99,6 +99,10 @@ class SwfXmlParser
         modifier_attributes = method.elements['QualifiedIdentifierNode/AttributeListNode'].attributes
         function.modifier = getModifier modifier_attributes 
         
+        # Parse if method is static
+        if modifier_attributes["static"]
+          function.is_static = true
+        end
         
         as3_data.functions << function
       end

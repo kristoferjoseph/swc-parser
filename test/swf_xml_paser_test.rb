@@ -80,6 +80,12 @@ class SwfXmlParserTest < Test::Unit::TestCase
       assert_equal( "public", func.modifier )
     end
     
+    should  "parse static methods" do
+      klazz = @swf_xml_parser.find_class_by_name "TestClass"
+      func = klazz.find_function_by_name "myStaticMethod"
+      assert( func.is_static )
+    end
+    
   end
   
 end

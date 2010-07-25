@@ -108,6 +108,15 @@ package com.developsigner.swcparser
 		{
 			super();
 		}
+
+		//---------------------------------------
+		// STATIC METHODS
+		//---------------------------------------
+		
+		public static function myStaticMethod():String
+		{
+			return "My goodness, you've gone and done it now."
+		}
 		
 		//---------------------------------------
 		// PUBLIC METHODS

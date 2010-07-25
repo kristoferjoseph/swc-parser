@@ -10,8 +10,8 @@
   </features>
   <libraries>
     <library path="library.swf">
-      <script name="_ebb1e37c9c59fbf0be8ec85916485626e7e95bee49dac804fedbf76a4282137b_flash_display_Sprite" mod="1279772133273" signatureChecksum="3881401429" >
-        <def id="_ebb1e37c9c59fbf0be8ec85916485626e7e95bee49dac804fedbf76a4282137b_flash_display_Sprite" /> 
+      <script name="_724a71422c4c30ec2875102b1c1f9d9accfb946957cbfd1b1333b5c69409c15b_flash_display_Sprite" mod="1280032443014" signatureChecksum="556038673" >
+        <def id="_724a71422c4c30ec2875102b1c1f9d9accfb946957cbfd1b1333b5c69409c15b_flash_display_Sprite" /> 
         <dep id="flash.system:Security" type="e" /> 
         <dep id="AS3" type="n" /> 
         <dep id="flash.display:Sprite" type="i" /> 
@@ -26,7 +26,7 @@
         <dep id="AS3" type="n" /> 
         <dep id="Object" type="i" /> 
       </script>
-      <script name="com/developsigner/swcparser/TestClass" mod="1279772124000" signatureChecksum="1328411714" >
+      <script name="com/developsigner/swcparser/TestClass" mod="1280032434000" signatureChecksum="3950248420" >
         <def id="com.developsigner.swcparser:TestClass" /> 
         <dep id="trace" type="e" /> 
         <dep id="AS3" type="n" /> 
@@ -35,7 +35,7 @@
         <dep id="flash.display:MovieClip" type="i" /> 
       </script>
       <digests>
-        <digest type="SHA-256" signed="false" value="bcf0c5f2c4cc488749e9310e24d98ca915bd7e86ceed0cc2b212f1f8552e252f"   />
+        <digest type="SHA-256" signed="false" value="6a58a047425caa6e0d01a947414c1018434f97c0566b662e8479fcf802c2e918"   />
       </digests>
     </library>
   </libraries>
