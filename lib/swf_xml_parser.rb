@@ -99,7 +99,14 @@ class SwfXmlParser
     unless methods.empty?
       methods.each do |method|
         function = As3Method.new
-        as3_data.methods << function
+        
+        # Parse method name
+        function.name = method.elements['QualifiedIdentifierNode'].attributes['name']
+        
+        # Parse method modifier
+        
+        
+        as3_data.functions << function
       end
     end
 

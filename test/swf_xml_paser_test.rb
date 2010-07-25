@@ -63,9 +63,15 @@ class SwfXmlParserTest < Test::Unit::TestCase
     #   assert_equal( "String", prop.type )
     # end
     # 
-    should "find methods on class" do
+    should "find function on class" do
       klazz = @swf_xml_parser.find_class_by_name "TestClass"
-      assert( !klazz.methods.empty? )
+      assert( !klazz.functions.empty? )
+    end
+    
+    should "find function by name" do
+      klazz = @swf_xml_parser.find_class_by_name "TestClass"
+      func = klazz.find_function_by_name "foo"
+      assert_equal( "foo", func.name )
     end
     
   end

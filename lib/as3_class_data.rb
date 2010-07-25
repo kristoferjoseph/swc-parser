@@ -6,7 +6,7 @@ class As3ClassData
   attr_accessor :interfaces
   attr_accessor :constants
   attr_accessor :properties
-  attr_accessor :methods
+  attr_accessor :functions
 
   def initialize
     @package      = ""
@@ -16,9 +16,7 @@ class As3ClassData
     @interfaces   = []
     @constants    = []
     @properties   = []
-    @methods      = []
-
-
+    @functions    = []
   end
 
   def fully_qualified_class_name=(name)
@@ -36,7 +34,11 @@ class As3ClassData
   end
 
   def find_property_by_name(name)
-    return properties.find { |prop| prop.name == name }
+    return @properties.find { |prop| prop.name == name }
+  end
+  
+  def find_function_by_name(name)
+    return @functions.find { |function| function.name == name }
   end
 
 end
