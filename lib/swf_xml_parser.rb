@@ -75,12 +75,14 @@ class SwfXmlParser
           prop.is_static = false
         end
         
-        if property.elements['LiteralStringNode']
-          prop.value = property.elements['LiteralStringNode'].attributes['value']
+        value_node = property.elements['LiteralStringNode']
+        if value_node
+          prop.value = value_node.attributes['value']
         end
         
-        if property.elements['*/MemberExpressionNode/selector/GetExpressionNode/IdentifierNode']
-          prop.type = property.elements['*/MemberExpressionNode/selector/GetExpressionNode/IdentifierNode'].attributes['name']
+        type_node = property.elements['*/MemberExpressionNode/selector/GetExpressionNode/IdentifierNode']
+        if type_node
+          prop.type = type_node.attributes['name']
         end
         
         as3_data.properties << prop
@@ -116,6 +118,7 @@ class SwfXmlParser
             if default && default.has_attributes?
               param.default = default.attributes['value']
             end
+            
             function.parameters << param
           end
         end
