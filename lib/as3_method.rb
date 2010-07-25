@@ -10,7 +10,7 @@ class As3Method
     @is_static   = false
     @name        = ""
     @parameters  = []
-    @return_type = []
+    @return_type = ""
   end
   
   def find_parameter_by_name(name)
