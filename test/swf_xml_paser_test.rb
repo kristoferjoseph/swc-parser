@@ -74,6 +74,12 @@ class SwfXmlParserTest < Test::Unit::TestCase
       assert_equal( "foo", func.name )
     end
     
+    should "parse function modifier" do
+      klazz = @swf_xml_parser.find_class_by_name "TestClass"
+      func = klazz.find_function_by_name "foo"
+      assert_equal( "public", func.modifier )
+    end
+    
   end
   
 end

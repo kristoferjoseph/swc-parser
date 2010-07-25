@@ -66,15 +66,7 @@ class SwfXmlParser
         prop = As3Property.new
         prop.name = property.elements['*/QualifiedIdentifierNode'].attributes["name"]
         attribute_array = property.elements['*/QualifiedIdentifierNode/AttributeListNode'].attributes
-        if attribute_array["public"]
-          prop.modifier = "public"
-        elsif attribute_array["private"]
-          prop.modifier = "private"
-        elsif attribute_array["protected"]
-          prop.modifier = "protected"
-        elsif attribute_array["internal"]
-          prop.modifier = "internal"
-        end
+        prop.modifier = getModifier attribute_array
 
         if attribute_array["static"]
           prop.is_static = true
@@ -104,6 +96,8 @@ class SwfXmlParser
         function.name = method.elements['QualifiedIdentifierNode'].attributes['name']
         
         # Parse method modifier
+        modifier_attributes = method.elements['QualifiedIdentifierNode/AttributeListNode'].attributes
+        function.modifier = getModifier modifier_attributes 
         
         
         as3_data.functions << function
@@ -113,6 +107,20 @@ class SwfXmlParser
     @as3_classes << as3_data
   end
 
+  def getModifier(array)
+    modifier = ""
+    if array["public"]
+      modifier = "public"
+    elsif array["private"]
+      modifier = "private"
+    elsif array["protected"]
+      modifier = "protected"
+    elsif array["internal"]
+      modifier = "internal"
+    end
+    return modifier
+  end
+  
   def find_class_by_name(name)
     @as3_classes.find { |klazz| klazz.class_name == name }
   end
