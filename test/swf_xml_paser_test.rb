@@ -113,11 +113,12 @@ class SwfXmlParserTest < Test::Unit::TestCase
       assert_equal( "kumquat", param.default )
     end
     
-    # should "parse function parameters return type" do
-    #   klazz = @swf_xml_parser.find_class_by_name "TestClass"
-    #   func = klazz.find_function_by_name "testPublicMethodWithArgumentAndReturnValue"
-    #   assert_equal( "String", func.return_type )
-    # end
+    should "parse function return type" do
+      klazz = @swf_xml_parser.find_class_by_name "TestClass"
+      func = klazz.find_function_by_name "testPublicMethodWithArgumentAndReturnValue"
+      assert_equal( "String", func.return_type )
+    end
+    
   end
   
 end

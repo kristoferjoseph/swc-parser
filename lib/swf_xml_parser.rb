@@ -124,6 +124,13 @@ class SwfXmlParser
           end
         end
         
+        # Parse function return type
+        return_type_node = method.elements['FunctionSignatureNode/MemberExpressionNode/selector/GetExpressionNode/IdentifierNode']
+        # We have to do this nil check here because constructors have no return type
+        if return_type_node && return_type_node.has_attributes?
+          function.return_type =  return_type_node.attributes['name']
+        end
+        
         as3_data.functions << function
       end
     end
