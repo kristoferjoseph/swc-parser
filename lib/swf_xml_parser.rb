@@ -27,7 +27,7 @@ class SwfXmlParser
   def parse_swf_xml(doc)
     tags = []
     # Parse all the Actionscript Byte Code elements
-    doc.elements.each("*/DoABC2") do |tag|
+    doc.elements.each("swf/DoABC2") do |tag|
       parse_do_abc_2_tag(tag)
     end
   end
@@ -47,9 +47,9 @@ class SwfXmlParser
     end
 
     # See if we are dealing with an interface class
-    interface_defenition_node =  doc.get_elements('//BinaryInterfaceDefinitionNode')
-    if interface_defenition_node[0]
-      as3_data.is_interface = interface_defenition_node[0].has_attributes?
+    interface_definition_node =  doc.get_elements('//BinaryInterfaceDefinitionNode')
+    if interface_definition_node[0]
+      as3_data.is_interface = interface_definition_node[0].has_attributes?
     end
 
     # Parse the interfaces
@@ -65,8 +65,9 @@ class SwfXmlParser
     unless properties.empty?
       properties.each do |property|
         prop = As3Property.new
-        prop.name = property.elements['*/QualifiedIdentifierNode'].attributes["name"]
-        attribute_array = property.elements['*/QualifiedIdentifierNode/AttributeListNode'].attributes
+        qualifier_node = property.elements['TypedIdentifierNode/QualifiedIdentifierNode']
+        prop.name = qualifier_node.attributes["name"]
+        attribute_array = qualifier_node.elements['AttributeListNode'].attributes
         prop.modifier = getModifier attribute_array
 
         if attribute_array["static"]
@@ -80,7 +81,7 @@ class SwfXmlParser
           prop.value = value_node.attributes['value']
         end
         
-        type_node = property.elements['*/MemberExpressionNode/selector/GetExpressionNode/IdentifierNode']
+        type_node = property.elements['TypedIdentifierNode/MemberExpressionNode/selector/GetExpressionNode/IdentifierNode']
         if type_node
           prop.type = type_node.attributes['name']
         end
@@ -112,8 +113,8 @@ class SwfXmlParser
         unless parameters.empty?
           parameters.each do |parameter|
             param = As3MethodParam.new
-            param.name = parameter.elements['*/IdentifierNode'].attributes['name']
-            param.type = parameter.elements['*/MemberExpressionNode/selector/GetExpressionNode/IdentifierNode'].attributes['name']
+            param.name = parameter.elements['identifier/IdentifierNode'].attributes['name']
+            param.type = parameter.elements['type/MemberExpressionNode/selector/GetExpressionNode/IdentifierNode'].attributes['name']
             default = parameter.elements['init/LiteralStringNode']
             if default && default.has_attributes?
               param.default = default.attributes['value']
