@@ -17,4 +17,20 @@ class As3Method
     return @parameters.find { |parameter| parameter.name == name }
   end
   
+  def get_parameters
+    str = ""
+    @parameters.each do |parameter|
+      if parameter == parameters[parameters.length-1]
+        str << parameter.to_s
+      else
+        str << "#{parameter.to_s},"     
+      end 
+    end
+    str
+  end
+  
+  def to_s
+    "#{@modifier} function #{name}(#{get_parameters}):#{return_type};"
+  end
+  
 end
