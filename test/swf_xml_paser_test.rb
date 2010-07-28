@@ -17,6 +17,13 @@ class SwfXmlParserTest < Test::Unit::TestCase
       @swf_xml_parser = nil
     end
     
+    should "return swc name from path" do
+      swc_name = @swf_xml_parser.get_swc_name "/foo/bar/baz/firehose.swc"
+      assert_equal( "firehose", swc_name )
+      swc_name = @swf_xml_parser.get_swc_name "biggafigga.swc"
+      assert_equal( "biggafigga", swc_name )      
+    end
+    
     should "Create SWF XMl file" do
       assert FileTest::exists?(File.join( @temp_directory, "library.xml"))
     end

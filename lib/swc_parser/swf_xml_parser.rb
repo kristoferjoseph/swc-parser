@@ -13,9 +13,10 @@ require "as3_method_param"
 module SWCParser
   class SwfXmlParser
     attr_accessor :as3_classes
-
-    def parse_swf(swc, temp_directory=nil)
+    
+    def parse_swf(swc, temp_directory=nil, output_directory=nil)
       swc_unarchiver = SwcUnarchiver.new()
+      @swc_file_name = get_swc_name(swc)
       swf_file = swc_unarchiver.unpack_swc(swc, temp_directory)
       xml_file = swf_file.gsub( "swf", "xml" )
       system "swfdump -asm -out #{xml_file} #{swf_file}"
@@ -143,9 +144,9 @@ module SWCParser
       end
 
       @as3_classes << as3_data
-      write_out_intrinsic_class(as3_data)
+      # write_out_intrinsic_class(as3_data)
     end
-
+    
     def get_modifier(array)
       modifier = ""
       if array["public"]
@@ -159,13 +160,19 @@ module SWCParser
       end
       return modifier
     end
-
+    
+    def get_swc_name(swc)
+      swc.split("/").pop().gsub(".swc","")
+    end
+    
     def find_class_by_name(name)
       @as3_classes.find { |klazz| klazz.class_name == name }
     end
     
     def write_out_intrinsic_class(class_data)
-      
+      File.open("#{output_directory/@swc_file_name/class_data.name}", 'w+') do |f|
+        f.write class_data.to_s
+      end
     end
 
   end
