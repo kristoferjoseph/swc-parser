@@ -26,7 +26,6 @@ module SWCParser
     end
 
     def parse_swf_xml(doc)
-      tags = []
       # Parse all the Actionscript Byte Code elements
       doc.elements.each("swf/DoABC2") do |tag|
         parse_do_abc_2_tag(tag)
@@ -144,6 +143,7 @@ module SWCParser
       end
 
       @as3_classes << as3_data
+      write_out_intrinsic_class(as3_data)
     end
 
     def get_modifier(array)
@@ -162,6 +162,10 @@ module SWCParser
 
     def find_class_by_name(name)
       @as3_classes.find { |klazz| klazz.class_name == name }
+    end
+    
+    def write_out_intrinsic_class(class_data)
+      
     end
 
   end
