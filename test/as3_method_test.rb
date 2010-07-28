@@ -6,13 +6,13 @@ class As3MethodTest < Test::Unit::TestCase
         
     should "render to string" do
       method_string = "public function doStuff(thing:String,doohickey:Number=8):Object;"
-      method = As3Method.new
+      method = SWCParser::As3Method.new
       method.modifier = "public"
       method.name = "doStuff"
-      param_1 = As3MethodParam.new
+      param_1 = SWCParser::As3MethodParam.new
       param_1.name = "thing"
       param_1.type = "String"
-      param_2 = As3MethodParam.new
+      param_2 = SWCParser::As3MethodParam.new
       param_2.name = "doohickey"
       param_2.type = "Number"
       param_2.default = 8

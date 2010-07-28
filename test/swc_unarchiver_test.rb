@@ -3,7 +3,7 @@ require File.join(File.dirname(__FILE__), "test_helper")
 class SwcUnarchiverTest < Test::Unit::TestCase
 
   def setup
-    @swc_unarchiver = SwcUnarchiver.new
+    @swc_unarchiver = SWCParser::SwcUnarchiver.new
     @input = File.join(fixtures, "swc_files", "SWCParserTest.swc")
     @target_directory = File.join(fixtures, "swc_unarchiver", "tmp")
     @expected_output = File.join(@target_directory, "library.swf")

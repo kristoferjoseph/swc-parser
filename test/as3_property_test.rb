@@ -5,7 +5,7 @@ class As3PropertyTest < Test::Unit::TestCase
   context "An AS3 property" do
     
     should "render to string" do
-      prop = As3Property.new
+      prop = SWCParser::As3Property.new
       prop.modifier = "public"
       prop.is_static = true
       prop.name = "fwee"
@@ -15,7 +15,7 @@ class As3PropertyTest < Test::Unit::TestCase
     end
     
     should "render to string with numbers" do
-      prop = As3Property.new
+      prop = SWCParser::As3Property.new
       prop.modifier = "protected"
       prop.is_static = false
       prop.name = "fwee"
@@ -25,7 +25,7 @@ class As3PropertyTest < Test::Unit::TestCase
     end
     
     should "render to string with Classes" do
-      prop = As3Property.new
+      prop = SWCParser::As3Property.new
       prop.modifier = "private"
       prop.is_static = false
       prop.name = "fwi"

@@ -5,7 +5,7 @@ class As3ClassDataTest < Test::Unit::TestCase
   context "As3 Class Data Should" do
 
     setup do
-      @as3_class_data = As3ClassData.new
+      @as3_class_data = SWCParser::As3ClassData.new
 
     end
 
@@ -42,7 +42,7 @@ class As3ClassDataTest < Test::Unit::TestCase
       @as3_class_data.is_interface = false
       @as3_class_data.interfaces = ["IDisplayObject","IUIComponent"]
       
-      prop_1 = As3Property.new()
+      prop_1 = SWCParser::As3Property.new()
       prop_1.modifier = "public"
       prop_1.name = "fwee"
       prop_1.is_static = false
@@ -50,21 +50,21 @@ class As3ClassDataTest < Test::Unit::TestCase
       prop_1.value = "dagnabbit"
       @as3_class_data.properties = [ prop_1 ]
       
-      method_1 = As3Method.new()
+      method_1 = SWCParser::As3Method.new()
       method_1.modifier = "public"
       method_1.name = "$construct"
       
-      method_param = As3MethodParam.new
+      method_param = SWCParser::As3MethodParam.new
       method_param.name = "v"
       method_param.type = "Object"
       method_1.parameters = [ method_param ]
       
-      method_2 = As3Method.new()
+      method_2 = SWCParser::As3Method.new()
       method_2.modifier = "public"
       method_2.name = "returnANumber"
       method_2.return_type = "Number"
       
-      method_param = As3MethodParam.new
+      method_param = SWCParser::As3MethodParam.new
       method_param.name = "amount"
       method_param.type = "Number"
       method_2.parameters = [ method_param ]

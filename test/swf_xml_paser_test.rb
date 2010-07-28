@@ -7,7 +7,7 @@ class SwfXmlParserTest < Test::Unit::TestCase
     setup do
       @swc = File.join(fixtures, "swc_files", "SWCParserTest.swc")
       @temp_directory = File.join(fixtures, "tmp")
-      @swf_xml_parser = SwfXmlParser.new()
+      @swf_xml_parser = SWCParser::SwfXmlParser.new()
       @swf_xml_parser.parse_swf( @swc, @temp_directory )
     end
 
