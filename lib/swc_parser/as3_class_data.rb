@@ -84,13 +84,13 @@ module SWCParser
 
     def to_s
       "package #{@package}
-     {
-        #{@modifier} class #{@class_name}#{get_super_class}#{get_interfaces}
-        {
-          #{get_properties}
-          #{get_functions}
-        }
-     }"
+       {
+          #{@modifier} class #{@class_name}#{get_super_class}#{get_interfaces}
+          {
+            #{get_properties}
+            #{get_functions}
+          }
+       }"
     end
 
   end

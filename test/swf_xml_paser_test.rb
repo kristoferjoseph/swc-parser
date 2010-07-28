@@ -7,13 +7,14 @@ class SwfXmlParserTest < Test::Unit::TestCase
     setup do
       @swc = File.join(fixtures, "swc_files", "SWCParserTest.swc")
       @temp_directory = File.join(fixtures, "tmp")
+      @output_directory = File.join(@temp_directory, "data", "completions", "swc_completions", "intrinsics")
       @swf_xml_parser = SWCParser::SwfXmlParser.new()
-      @swf_xml_parser.parse_swf( @swc, @temp_directory )
+      @swf_xml_parser.parse_swf( @swc, @temp_directory, @output_directory )
     end
 
     teardown do
       @swc = nil
-      #remove_file @temp_directory
+      FileUtils.remove_dir( @temp_directory, true )
       @swf_xml_parser = nil
     end
     

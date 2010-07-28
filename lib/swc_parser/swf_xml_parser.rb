@@ -13,10 +13,11 @@ require "as3_method_param"
 module SWCParser
   class SwfXmlParser
     attr_accessor :as3_classes
-    
+
     def parse_swf(swc, temp_directory=nil, output_directory=nil)
       swc_unarchiver = SwcUnarchiver.new()
       @swc_file_name = get_swc_name(swc)
+      @output_directory = output_directory
       swf_file = swc_unarchiver.unpack_swc(swc, temp_directory)
       xml_file = swf_file.gsub( "swf", "xml" )
       system "swfdump -asm -out #{xml_file} #{swf_file}"
@@ -37,6 +38,23 @@ module SWCParser
       doc = REXML::Document.new(tag.to_s)
       root = doc.root
       as3_data = As3ClassData.new()
+
+      # # Skip excluded classes
+      # metadata_nodes = doc.get_elements('//MetaDataNode')
+      # unless metadata_nodes.empty?
+      #   metadata_nodes.each do |data|
+      #     if data.has_attributes?
+      #       meta_attrs = data.attributes
+      #       meta_attrs.each do |a|
+      #         p "attr #{a}"
+      #         if a["id"] == "ExcludeClass"
+      #           return
+      #         end
+      #       end
+      #     end
+      #   end
+      # end
+
 
       # Parse the package and class name
       as3_data.fully_qualified_class_name = root.attributes["name"]
@@ -144,9 +162,9 @@ module SWCParser
       end
 
       @as3_classes << as3_data
-      # write_out_intrinsic_class(as3_data)
+      write_out_intrinsic_class(as3_data)
     end
-    
+
     def get_modifier(array)
       modifier = ""
       if array["public"]
@@ -160,17 +178,20 @@ module SWCParser
       end
       return modifier
     end
-    
+
     def get_swc_name(swc)
       swc.split("/").pop().gsub(".swc","")
     end
-    
+
     def find_class_by_name(name)
       @as3_classes.find { |klazz| klazz.class_name == name }
     end
-    
+
     def write_out_intrinsic_class(class_data)
-      File.open("#{output_directory/@swc_file_name/class_data.name}", 'w+') do |f|
+      output_path = File.join( @output_directory, @swc_file_name )
+      FileUtils.mkdir_p(output_path)
+      file = File.join( output_path, "#{class_data.class_name}.as" )
+      File.open( file, 'w+') do |f|
         f.write class_data.to_s
       end
     end

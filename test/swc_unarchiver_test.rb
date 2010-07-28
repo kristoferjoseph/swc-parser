@@ -12,7 +12,7 @@ class SwcUnarchiverTest < Test::Unit::TestCase
   def tear_down
     @swc_unarchiver = nil
     @input = nil
-    remove_file @target_directory
+    FileUtils.remove_dir( @target_directory, true ) 
     @target_directory = nil
     @expected_output = nil
   end
