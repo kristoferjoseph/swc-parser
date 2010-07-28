@@ -1,5 +1,6 @@
 class As3ClassData
   attr_accessor :package
+  attr_accessor :modifier
   attr_accessor :class_name
   attr_accessor :super_class
   attr_accessor :is_interface
@@ -10,6 +11,7 @@ class As3ClassData
 
   def initialize
     @package      = ""
+    @modifier     = "public"
     @class_name   = ""
     @super_class  = ""
     @is_interface = false
@@ -40,5 +42,54 @@ class As3ClassData
   def find_function_by_name(name)
     return @functions.find { |function| function.name == name }
   end
+  
+  def get_super_class
+    " extends #{super_class}" unless super_class.nil? || super_class == ""
+  end
+  
+  def get_interfaces
+    unless @interfaces.empty?
+      interface_string = " implements "
+      @interfaces.each do |interface|
+        if interface == @interfaces[@interfaces.length-1]
+          interface_string << interface
+        else
+          interface_string << "#{interface},"
+        end
+      end
+      interface_string
+    end      
+  end
+  
+  def get_properties
+    unless @properties.empty?
+      @properties.each do |prop|
+        "#{prop.to_s}"
+      end
+    end
+  end
+  
+  def get_functions
+    unless @functions.empty?
+      @functions.each do |func|
+        # Special handling for constructor
+        if func.name == "$construct"
+          func.name = class_name
+        end
+        "#{func.to_s}"
+      end
+    end
+  end
 
+  def to_s
+    "package #{@package}
+     {
+        #{@modifier} class #{@class_name}#{get_super_class}#{get_interfaces}
+        {
+          #{get_properties}
+          #{get_functions}
+        }
+     }"
+  end
+  
 end

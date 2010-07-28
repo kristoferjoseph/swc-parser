@@ -104,9 +104,10 @@ package com.developsigner.swcparser
 		/**
 		 * @constructor
 		 */
-		public function TestClass()
+		public function TestClass(lame:String)
 		{
 			super();
+			lame = foo;
 		}
 
 		//---------------------------------------

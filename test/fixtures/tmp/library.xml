@@ -1,17 +1,17 @@
 <!-- Parsing swf file:/Users/kristoferjoseph/Documents/workspace/swc-parser/test/fixtures/tmp/library.swf -->
 <!-- ?xml version="1.0" encoding="UTF-8"? -->
 <swf xmlns='http://macromedia/2003/swfx' version='10' framerate='24' size='10000x7500' compressed='true' >
-  <!-- framecount=1 length=6933 -->
+  <!-- framecount=1 length=6953 -->
   <FileAttributes hasMetadata='true' actionScript3='true' suppressCrossDomainCaching='false' swfRelativeUrls='false' useNetwork='true'/>
   <Metadata>
-    <rdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'><rdf:Description rdf:about='' xmlns:dc='http://purl.org/dc/elements/1.1'><dc:format>application/x-shockwave-flash</dc:format><dc:title>Adobe Flex 4 Application</dc:title><dc:description>http://www.adobe.com/products/flex</dc:description><dc:publisher>unknown</dc:publisher><dc:creator>unknown</dc:creator><dc:language>EN</dc:language><dc:date>Jul 24, 2010</dc:date></rdf:Description></rdf:RDF>
+    <rdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'><rdf:Description rdf:about='' xmlns:dc='http://purl.org/dc/elements/1.1'><dc:format>application/x-shockwave-flash</dc:format><dc:title>Adobe Flex 4 Application</dc:title><dc:description>http://www.adobe.com/products/flex</dc:description><dc:publisher>unknown</dc:publisher><dc:creator>unknown</dc:creator><dc:language>EN</dc:language><dc:date>Jul 27, 2010</dc:date></rdf:Description></rdf:RDF>
   </Metadata>
-  <EnableDebugger2 password='$1$MJ$qTa2GEwQsUQYNl.EVtkiA1' reserved='0x1975'/>
+  <EnableDebugger2 password='$1$3I$M92MLOqZDJgHsdCwt90Iu/' reserved='0x1975'/>
   <!-- error: SWD not found at url file:/Users/kristoferjoseph/Documents/workspace/swc-parser/test/fixtures/tmp/library.swd -->
-  <DebugID uuid='5A7423B1C957C712D9EC56F9D6FE6780'/>
+  <DebugID uuid='59B7B3E50FBF1DB7B2E374CCAACA45C1'/>
   <ScriptLimits scriptRecursionLimit='1000' scriptTimeLimit='60'/>
   <SetBackgroundColor color='#FFFFFF'/>
-  <ProductInfo product='Adobe Flex' edition='' version='4.0' build='14159' compileDate='7/24/10 9:55 PM'/>
+  <ProductInfo product='Adobe Flex' edition='' version='4.0' build='14159' compileDate='7/27/10 9:46 PM'/>
   <DoABC2 name='com/developsigner/swcparser/ITestClass'>
     <ProgramNode>
       <pkgdefs>
@@ -1190,6 +1190,22 @@
                           </AttributeListNode>
                         </QualifiedIdentifierNode>
                         <FunctionSignatureNode no_anno="false" void_anno="false">
+                          <ParameterListNode>
+                            <ParameterNode kind="-112">
+                              <identifier>
+                                <IdentifierNode name="lame"/>
+                              </identifier>
+                              <type>
+                                <MemberExpressionNode>
+                                  <selector>
+                                    <GetExpressionNode is_package="false" isRValue="false" isAttr="false" isSuper="false" isThis="false" isVoidResult="false" mode="lexical">
+                                      <IdentifierNode name="String"/>
+                                    </GetExpressionNode>
+                                  </selector>
+                                </MemberExpressionNode>
+                              </type>
+                            </ParameterNode>
+                          </ParameterListNode>
                         </FunctionSignatureNode>
                       </FunctionCommonNode>
                     </fexpr>
@@ -1297,7 +1313,7 @@
       </statements>
     </ProgramNode>
   </DoABC2>
-  <DoABC2 name='_d59c53202ce66e7d9f15e75c564a52294dcf49cf81176c643702208b5177b8c0_flash_display_Sprite'>
+  <DoABC2 name='_54a4bed44cd99dd0e8b3a08a5b160c269362f2e3cf971586fab7480c37fcd5ea_flash_display_Sprite'>
     <ProgramNode>
       <pkgdefs>
       </pkgdefs>
@@ -1315,7 +1331,7 @@
                   </MetaDataNode>
                 </items>
               </StatementListNode>
-              <BinaryClassDefNode name="_d59c53202ce66e7d9f15e75c564a52294dcf49cf81176c643702208b5177b8c0_flash_display_Sprite">
+              <BinaryClassDefNode name="_54a4bed44cd99dd0e8b3a08a5b160c269362f2e3cf971586fab7480c37fcd5ea_flash_display_Sprite">
                 <metaData>
                   <StatementListNode>
                     <items>
@@ -1333,7 +1349,7 @@
                   </AttributeListNode>
                 </attrs>
                 <name>
-                  <QualifiedIdentifierNode name="_d59c53202ce66e7d9f15e75c564a52294dcf49cf81176c643702208b5177b8c0_flash_display_Sprite">
+                  <QualifiedIdentifierNode name="_54a4bed44cd99dd0e8b3a08a5b160c269362f2e3cf971586fab7480c37fcd5ea_flash_display_Sprite">
                     <AttributeListNode public='true'>
                     </AttributeListNode>
                   </QualifiedIdentifierNode>
@@ -1483,7 +1499,7 @@
     </ProgramNode>
   </DoABC2>
   <SymbolClass>
-    <Symbol idref='0' className='_d59c53202ce66e7d9f15e75c564a52294dcf49cf81176c643702208b5177b8c0_flash_display_Sprite' />
+    <Symbol idref='0' className='_54a4bed44cd99dd0e8b3a08a5b160c269362f2e3cf971586fab7480c37fcd5ea_flash_display_Sprite' />
   </SymbolClass>
   <ShowFrame/>
 </swf>

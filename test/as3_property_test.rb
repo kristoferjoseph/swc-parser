@@ -11,7 +11,7 @@ class As3PropertyTest < Test::Unit::TestCase
       prop.name = "fwee"
       prop.value = "fugnucket"
       prop.type = "String"
-      assert_equal 'public static var fwee:String="fugnucket"', prop.to_s
+      assert_equal 'public static var fwee:String="fugnucket";', prop.to_s
     end
     
     should "render to string with numbers" do
@@ -21,7 +21,7 @@ class As3PropertyTest < Test::Unit::TestCase
       prop.name = "fwee"
       prop.value = "5"
       prop.type = "int"
-      assert_equal 'protected var fwee:int=5', prop.to_s
+      assert_equal 'protected var fwee:int=5;', prop.to_s
     end
     
     should "render to string with Classes" do
@@ -31,7 +31,7 @@ class As3PropertyTest < Test::Unit::TestCase
       prop.name = "fwi"
       prop.value = "DisplayObject"
       prop.type = "Class"
-      assert_equal 'private var fwi:Class=DisplayObject', prop.to_s
+      assert_equal 'private var fwi:Class=DisplayObject;', prop.to_s
     end
     
   end

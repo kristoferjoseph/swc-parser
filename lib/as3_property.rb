@@ -5,7 +5,7 @@ class As3Property
   attr_accessor :name
   attr_accessor :value
   attr_accessor :type
-  
+    
   def get_static
     " static" unless !@is_static
   end
@@ -21,7 +21,7 @@ class As3Property
   end
   
   def to_s
-    "#{@modifier}#{get_static} var #{@name}:#{@type}#{get_value}"
+    "#{@modifier}#{get_static} var #{@name}:#{@type}#{get_value};"
   end
   
 end

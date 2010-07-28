@@ -39,7 +39,7 @@ class SwfXmlParser
     
     # Parse the package and class name
     as3_data.fully_qualified_class_name = root.attributes["name"]
-
+    
     # Parse the super class name
     stringNode = doc.get_elements('//baseclass/LiteralStringNode')
     if stringNode[0]
@@ -50,6 +50,13 @@ class SwfXmlParser
     interface_definition_node =  doc.get_elements('//BinaryInterfaceDefinitionNode')
     if interface_definition_node[0]
       as3_data.is_interface = interface_definition_node[0].has_attributes?
+    end
+    
+    # Parse the class modifier
+    if as3_data.is_interface
+      modifier = get_modifier interface_definition_node[0].elements['attrs/AttributeListNode'].attributes
+    else
+      modifier = get_modifier doc.get_elements('//BinaryClassDefNode')[0].elements['attrs/AttributeListNode'].attributes
     end
 
     # Parse the interfaces
@@ -68,7 +75,7 @@ class SwfXmlParser
         qualifier_node = property.elements['TypedIdentifierNode/QualifiedIdentifierNode']
         prop.name = qualifier_node.attributes["name"]
         attribute_array = qualifier_node.elements['AttributeListNode'].attributes
-        prop.modifier = getModifier attribute_array
+        prop.modifier = get_modifier attribute_array
 
         if attribute_array["static"]
           prop.is_static = true
@@ -101,7 +108,7 @@ class SwfXmlParser
         
         # Parse method modifier
         modifier_attributes = method.elements['QualifiedIdentifierNode/AttributeListNode'].attributes
-        function.modifier = getModifier modifier_attributes 
+        function.modifier = get_modifier modifier_attributes 
         
         # Parse if method is static
         if modifier_attributes["static"]
@@ -138,7 +145,7 @@ class SwfXmlParser
     @as3_classes << as3_data
   end
 
-  def getModifier(array)
+  def get_modifier(array)
     modifier = ""
     if array["public"]
       modifier = "public"

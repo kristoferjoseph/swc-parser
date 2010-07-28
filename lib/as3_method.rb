@@ -29,8 +29,13 @@ class As3Method
     str
   end
   
+  def get_return_type
+    # Special handling for the constructor
+    ":#{return_type}" unless return_type == ""
+  end
+  
   def to_s
-    "#{@modifier} function #{name}(#{get_parameters}):#{return_type};"
+    "#{@modifier} function #{name}(#{get_parameters})#{get_return_type};"
   end
   
 end
