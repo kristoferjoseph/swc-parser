@@ -29,8 +29,8 @@ class SwfXmlParserTest < Test::Unit::TestCase
       assert FileTest::exists?(File.join( @temp_directory, "library.xml"))
     end
     
-    should "find AS3 class tags" do
-      assert_equal( 4, @swf_xml_parser.as3_classes.length )
+    should "parse AS3 class tags except for excluded classes" do
+      assert_equal( 3, @swf_xml_parser.as3_classes.length )
     end
     
     should "find class by name" do
