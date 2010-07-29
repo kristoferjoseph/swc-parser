@@ -77,7 +77,11 @@ module SWCParser
           if func.name == "$construct"
             func.name = class_name
           end
-          "#{func.to_s}"
+          if @is_interface
+            return
+          else
+            "#{func.to_s}"
+          end
         end
       end
     end
