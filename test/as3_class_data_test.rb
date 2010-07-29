@@ -6,7 +6,6 @@ class As3ClassDataTest < Test::Unit::TestCase
 
     setup do
       @as3_class_data = SWCParser::As3ClassData.new
-
     end
 
     teardown do
@@ -24,6 +23,23 @@ class As3ClassDataTest < Test::Unit::TestCase
       assert_equal "MovieClip", @as3_class_data.super_class
       @as3_class_data.fully_qualified_super_class_name = "Object"
       assert_equal "Object", @as3_class_data.super_class
+    end
+    
+    should "use class name for constructor method" do
+      @as3_class_data.fully_qualified_class_name = "com/developsigner/DamiamGroteske"
+      @as3_class_data.is_interface = true;
+      
+      method_1 = SWCParser::As3Method.new()
+      method_1.modifier = "public"
+      method_1.name = "$construct"
+      
+      method_param = SWCParser::As3MethodParam.new
+      method_param.name = "v"
+      method_param.type = "Object"
+      method_1.parameters = [ method_param ]
+      
+      @as3_class_data.functions = [ method_1 ]
+      assert_equal "public function DamiamGroteske(v:Object);", @as3_class_data.get_functions.to_s
     end
 
     should "render to string" do
@@ -70,7 +86,7 @@ class As3ClassDataTest < Test::Unit::TestCase
       method_2.parameters = [ method_param ]
       
       @as3_class_data.functions = [ method_1, method_2 ]
-      #  No fucking idea how to actually compare these. The data is right so *shrug*
+      # No idea how to actually compare these. The data is right just the formatting is wrong so *shrug*
       # assert_equal as3_class, @as3_class_data.to_s
     end
 
