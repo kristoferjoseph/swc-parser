@@ -11,7 +11,7 @@ There are two approaches taken in this repo; Each on it's own branch.
 
 	>Upside to this approach is that it will just work. Downside to this approach is that without forcing a possibly painful gem update process I am stuck using ruby's built in REXML; which is slower than hoped.
 
-*	Parsing the byte code from the swc file. This is a fork of the amazing work of __ and just simply adds ABC2 tag parsing to the [swfer](http://github/someone/swfer) lib (Only for those running ruby 1.8.7). There is also a branch using the redsun lib for ruby 1.9.1 in progress.
+*	Parsing the byte code from the swc file. This is a fork of the amazing work of __ and just simply adds ABC2 tag parsing to the [swfer](http://github/someone/swfer) lib (Only for those running ruby 1.8.7). There is also a branch using the [redsun](http://github/someone/redsun) lib for ruby 1.9.1 in progress.
 
 	>Upside to this is that it is blazing fast. Downside to this is depending what version of ruby you are running the parsing is different. I am still trying to determine the best way to branch based on what ruby version the system has running. Needless to say this is still a work in progress. This can be found in the branch named byte
 
