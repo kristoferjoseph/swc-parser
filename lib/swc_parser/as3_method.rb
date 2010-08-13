@@ -2,6 +2,7 @@ module SWCParser
   class As3Method
     attr_accessor :modifier
     attr_accessor :is_static
+    attr_accessor :is_constructor
     attr_accessor :name
     attr_accessor :parameters
     attr_accessor :return_type
@@ -11,7 +12,11 @@ module SWCParser
       @is_static   = false
       @name        = ""
       @parameters  = []
-      @return_type = ""
+      @return_type = nil
+    end
+        
+    def is_constructor?
+      @is_constructor
     end
 
     def find_parameter_by_name(name)
@@ -31,14 +36,12 @@ module SWCParser
     end
 
     def get_return_type
-      # Special handling for the constructor
-      ":#{return_type}" unless return_type == ""
+      ":#{return_type || '*'}" unless is_constructor?
     end
 
     def to_s
       "#{@modifier} function #{name}(#{get_parameters})#{get_return_type};"
     end
-
   end
 
 end

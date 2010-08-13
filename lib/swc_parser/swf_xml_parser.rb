@@ -29,20 +29,18 @@ module SWCParser
 
     def parse_swf_xml(doc)
       # Parse all the Actionscript Byte Code elements
-      doc.elements.each("swf/DoABC2") do |tag|
-        parse_do_abc_2_tag(tag)
+      doc.elements.each("swf/DoABC2") do |element|
+        parse_do_abc_2_tag(element)
       end
     end
 
-    def parse_do_abc_2_tag(tag)
-      doc = REXML::Document.new(tag.to_s)
-      root = doc.root
+    def parse_do_abc_2_tag(doc)
       as3_data = As3ClassData.new()
       
       exclude_class = false
       
       # Skip excluded classes
-      metadata_nodes = doc.get_elements('//MetaDataNode')
+      metadata_nodes = doc.get_elements("#{doc.xpath}//MetaDataNode")
       unless metadata_nodes.empty?
         metadata_nodes.each do |node|
           if node.has_attributes?
@@ -55,16 +53,16 @@ module SWCParser
 
       unless exclude_class
         # Parse the package and class name
-        as3_data.fully_qualified_class_name = root.attributes["name"]
+        as3_data.fully_qualified_class_name = doc.attributes["name"]
 
         # Parse the super class name
-        stringNode = doc.get_elements('//baseclass/LiteralStringNode')
+        stringNode = doc.get_elements("#{doc.xpath}//baseclass/LiteralStringNode")
         if stringNode[0]
           as3_data.fully_qualified_super_class_name = stringNode[0].attributes["value"]
         end
 
         # See if we are dealing with an interface class
-        interface_definition_node =  doc.get_elements('//BinaryInterfaceDefinitionNode')
+        interface_definition_node =  doc.get_elements("#{doc.xpath}//BinaryInterfaceDefinitionNode")
         if interface_definition_node[0]
           as3_data.is_interface = interface_definition_node[0].has_attributes?
         end
@@ -73,11 +71,12 @@ module SWCParser
         if as3_data.is_interface
           modifier = get_modifier interface_definition_node[0].elements['attrs/AttributeListNode'].attributes
         else
-          modifier = get_modifier doc.get_elements('//BinaryClassDefNode')[0].elements['attrs/AttributeListNode'].attributes
+          binary_node = doc.get_elements("#{doc.xpath}//BinaryClassDefNode")[0]
+          modifier = get_modifier binary_node.elements['attrs/AttributeListNode'].attributes unless binary_node.nil?
         end
 
         # Parse the interfaces
-        interfaces = doc.get_elements('//interfaces//IdentifierNode')
+        interfaces = doc.get_elements("#{doc.xpath}//interfaces//IdentifierNode")
         unless interfaces.empty?
           interfaces.each do |e|
             as3_data.interfaces << e.attributes["name"]
@@ -85,7 +84,7 @@ module SWCParser
         end
 
         # Parse the public properties
-        properties = doc.get_elements('//VariableBindingNode')
+        properties = doc.get_elements("#{doc.xpath}//VariableBindingNode")
         unless properties.empty?
           properties.each do |property|
             prop = As3Property.new
@@ -115,13 +114,14 @@ module SWCParser
         end
 
         # Parse all the methods
-        methods = doc.get_elements('//FunctionCommonNode')
+        methods = doc.get_elements("#{doc.xpath}//FunctionCommonNode")
         unless methods.empty?
           methods.each do |method|
             function = As3Method.new
 
             # Parse method name
             function.name = method.elements['QualifiedIdentifierNode'].attributes['name']
+            function.is_constructor = (function.name == '$construct')
 
             # Parse method modifier
             modifier_attributes = method.elements['QualifiedIdentifierNode/AttributeListNode'].attributes
@@ -133,12 +133,14 @@ module SWCParser
             end
 
             # Parse function parameters
-            parameters = method.get_elements('//ParameterNode')
+            parameter_selector = "#{method.xpath}//ParameterNode"
+            parameters = method.get_elements(parameter_selector)
             unless parameters.empty?
               parameters.each do |parameter|
                 param = As3MethodParam.new
                 param.name = parameter.elements['identifier/IdentifierNode'].attributes['name']
-                param.type = parameter.elements['type/MemberExpressionNode/selector/GetExpressionNode/IdentifierNode'].attributes['name']
+                identifier_node = parameter.elements['type/MemberExpressionNode/selector/GetExpressionNode/IdentifierNode']
+                param.type = identifier_node.attributes['name'] unless identifier_node.nil?
                 default = parameter.elements['init/LiteralStringNode']
                 if default && default.has_attributes?
                   param.default = default.attributes['value']

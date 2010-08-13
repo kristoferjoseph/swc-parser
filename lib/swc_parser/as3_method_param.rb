@@ -8,8 +8,8 @@ module SWCParser
       "=#{@default}" unless @default.nil?
     end
 
-    def to_s
-      "#{@name}:#{@type}#{get_default}"
+      def to_s
+      "#{@name}:#{@type || '*'}#{get_default}"
     end
   end
 end

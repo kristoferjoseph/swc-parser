@@ -14,8 +14,12 @@ class SwfXmlParserTest < Test::Unit::TestCase
 
     teardown do
       @swc = nil
-      FileUtils.remove_dir( @temp_directory, true )
+      #FileUtils.remove_dir( @temp_directory, true )
       @swf_xml_parser = nil
+    end
+    
+    should "work end to end" do
+      assert true
     end
     
     should "return swc name from path" do
@@ -31,6 +35,13 @@ class SwfXmlParserTest < Test::Unit::TestCase
     
     should "parse AS3 class tags except for excluded classes" do
       assert_equal( 3, @swf_xml_parser.as3_classes.length )
+    end
+    
+    should "hide constructor for interfaces" do
+      interface = @swf_xml_parser.find_class_by_name "ITestClass"
+      assert_not_nil interface
+      match = interface.to_s =~ /function ITestClass/
+      assert_nil match, "Interface constructors should not be displayed"
     end
     
     should "find class by name" do
