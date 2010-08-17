@@ -64,33 +64,39 @@ module SWCParser
 
     def get_properties
       unless @properties.empty?
-        @properties.each do |prop|
-          "#{prop.to_s}"
-        end
+        @properties.collect do |prop|
+          prop.to_s
+        end.join("\n    ")
       end
     end
 
     def get_functions
       unless @functions.empty?
-        @functions.each do |func|
+        function_strings = @functions.collect do |func|
           # Special handling for constructor
-          if func.name == "$construct"
-            func.name = class_name
-          end
-          "#{func.to_s}"
+          func.name = class_name if func.is_constructor?
+          func.to_s unless func_is_constructor_on_an_interface? func
         end
+        function_strings.select {|str| str }.join("\n    ")
       end
+    end
+        
+    def func_is_constructor_on_an_interface? func
+      func.is_constructor? && @is_interface
     end
 
     def to_s
-      "package #{@package}
-       {
-          #{@modifier} class #{@class_name}#{get_super_class}#{get_interfaces}
-          {
-            #{get_properties}
-            #{get_functions}
-          }
-       }"
+      result =<<EOF
+package #{@package}
+{
+  #{@modifier} class #{@class_name}#{get_super_class}#{get_interfaces}
+  {
+    #{get_properties}
+    #{get_functions}
+  }
+}
+
+EOF
     end
 
   end

@@ -11,8 +11,10 @@ module SWCParser
 
       def get_swf_path_from_swc(swc, target_directory)
         system "unzip -uo #{swc} -d #{target_directory} >/dev/null"
-        if File.exist? "#{target_directory}/library.swf"
-          return "#{target_directory}/library.swf"
+        library = "#{target_directory}/library.swf"
+        if File.exist? library
+          File.chmod 0755, library 
+          return library
         end
 
         raise "swc was not parsed correctly"

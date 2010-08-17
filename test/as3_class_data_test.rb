@@ -30,7 +30,8 @@ class As3ClassDataTest < Test::Unit::TestCase
       
       method_1 = SWCParser::As3Method.new()
       method_1.modifier = "public"
-      method_1.name = "$construct"
+      method_1.name = "DamiamGroteske"
+      method_1.is_constructor = true
       
       method_param = SWCParser::As3MethodParam.new
       method_param.name = "v"
@@ -41,32 +42,20 @@ class As3ClassDataTest < Test::Unit::TestCase
       assert_equal "public function DamiamGroteske(v:Object);", @as3_class_data.get_functions.to_s
     end
     
-    # TODO: Make this test pass plz
-    # should "ommit construct for interface class" do
-    #   @as3_class_data.fully_qualified_class_name = "com/developsigner/DamiamGroteske"
-    #   @as3_class_data.is_interface = true;
-    #   
-    #   method_1 = SWCParser::As3Method.new()
-    #   method_1.modifier = "public"
-    #   method_1.name = "$construct"
-    #   
-    #   @as3_class_data.functions = [ method_1 ]
-    #   assert_equal "", @as3_class_data.get_functions.to_s
-    # end
-    
-    
-
     should "render to string" do
-      as3_class = "package com.developsigner
-                   {
-                      public class BadAssClass extends MovieClip implements IDisplayObject,IUIComponent
-                      {
-                        public var fwee:String=\"dagnabbit\";
-                        public function BadAssClass(v:Object);
-                        public function returnANumber(amount:Number):Number;
-                        
-                      }
-                    }"
+      as3_class =<<EOF
+package com.developsigner
+{
+  public class BadAssClass extends MovieClip implements IDisplayObject,IUIComponent
+  {
+    public var fwee:String="dagnabbit";
+    public function BadAssClass(v:Object);
+    public function returnANumber(amount:Number):Number;
+  }
+}
+
+EOF
+
       @as3_class_data.fully_qualified_class_name = "com/developsigner/BadAssClass"
       @as3_class_data.fully_qualified_super_class_name = "flash.display:MovieClip"
       @as3_class_data.is_interface = false
@@ -82,7 +71,8 @@ class As3ClassDataTest < Test::Unit::TestCase
       
       method_1 = SWCParser::As3Method.new()
       method_1.modifier = "public"
-      method_1.name = "$construct"
+      method_1.name = "BadAssClass"
+      method_1.is_constructor = true
       
       method_param = SWCParser::As3MethodParam.new
       method_param.name = "v"
@@ -101,7 +91,7 @@ class As3ClassDataTest < Test::Unit::TestCase
       
       @as3_class_data.functions = [ method_1, method_2 ]
       # No idea how to actually compare these. The data is right just the formatting is wrong so *shrug*
-      # assert_equal as3_class, @as3_class_data.to_s
+      assert_equal as3_class, @as3_class_data.to_s
     end
 
   end

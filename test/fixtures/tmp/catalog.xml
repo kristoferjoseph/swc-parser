@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding ="utf-8"?>
+<swc xmlns="http://www.adobe.com/flash/swccatalog/9">
+  <versions>
+    <swc version="1.2" />
+    <flex version="4.0.0" build="14159" minimumSupportedVersion="3.0.0" />
+  </versions>
+  <features>
+    <feature-script-deps />
+    <feature-files />
+  </features>
+  <libraries>
+    <library path="library.swf">
+      <script name="com/developsigner/swcparser/ITestClass" mod="1279765600000" signatureChecksum="2085241277" >
+        <def id="com.developsigner.swcparser:ITestClass" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/developsigner/swcparser/IOtherTestInterface" mod="1279772099000" signatureChecksum="1571693977" >
+        <def id="com.developsigner.swcparser:IOtherTestInterface" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/developsigner/swcparser/TestClass" mod="1280292389000" signatureChecksum="2833778153" >
+        <def id="com.developsigner.swcparser:TestClass" /> 
+        <dep id="trace" type="e" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.developsigner.swcparser:ITestClass" type="i" /> 
+        <dep id="com.developsigner.swcparser:IOtherTestInterface" type="i" /> 
+        <dep id="flash.display:MovieClip" type="i" /> 
+      </script>
+      <script name="_54a4bed44cd99dd0e8b3a08a5b160c269362f2e3cf971586fab7480c37fcd5ea_flash_display_Sprite" mod="1280292394889" signatureChecksum="1579252669" >
+        <def id="_54a4bed44cd99dd0e8b3a08a5b160c269362f2e3cf971586fab7480c37fcd5ea_flash_display_Sprite" /> 
+        <dep id="flash.system:Security" type="e" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.display:Sprite" type="i" /> 
+      </script>
+      <digests>
+        <digest type="SHA-256" signed="false" value="5d7b3222ce34b5c2e614f48c10c8091e5895835f3db1f378dc2af99c6b375088"   />
+      </digests>
+    </library>
+  </libraries>
+  <files>
+  </files>
+</swc>
