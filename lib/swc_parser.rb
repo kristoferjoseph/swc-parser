@@ -1,0 +1,6 @@
+require "swc_parser/as3_class_data"
+require "swc_parser/as3_method"
+require "swc_parser/as3_method_param"
+require "swc_parser/as3_property"
+require "swc_parser/swc_unarchiver"
+require "swc_parser/swf_xml_parser"

@@ -3,12 +3,8 @@ gem 'rake'
 require 'rake'
 require 'zlib'
 require 'fileutils'
-require 'swc_unarchiver'
 require 'rexml/document'
-require 'as3_class_data'
-require 'as3_property'
-require "as3_method"
-require "as3_method_param"
+
 
 module SWCParser
   class SwfXmlParser
