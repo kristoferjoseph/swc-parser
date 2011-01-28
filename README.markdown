@@ -6,7 +6,7 @@ I am currently working on integrating this into my own fork of the bundle [here]
 
 How it works:
 
-    #WARNING swfdump has recently broken compatibility. If you want to keep using this project make sure to hang on to a version of swfdump from a Flex SDK prior to 4.5
+#WARNING swfdump has recently broken compatibility. If you want to keep using this project make sure to hang on to a version of swfdump from a Flex SDK prior to 4.5
 
 *	Using swfdump to create an XML representation of the as3 classes in the swc, then parsing them into data objects.
 
